@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { siInstagram, siFacebook } from "simple-icons";
+import gsap from "gsap";
 import { navLinks } from "../navlinks";
 import { Icon } from "../../ui/Icon";
 import { StarAdornment } from "../../icons/StarAdornment";
@@ -28,25 +29,30 @@ function SimpleIcon({
 	);
 }
 
-type MenuState = "closed" | "opening" | "open" | "closing";
-
 export function MobileMenu() {
-	const [state, setState] = useState<MenuState>("closed");
+	const [mounted, setMounted] = useState(false);
+	const overlayRef = useRef<HTMLDivElement>(null);
+	const tlRef = useRef<gsap.core.Tween | null>(null);
 
-	const open = () => setState("opening");
-	const close = () => setState("closing");
-	const onTransitionEnd = () => {
-		if (state === "closing") setState("closed");
+	const open = () => {
+		setMounted(true);
 	};
 
-	useEffect(() => {
-		if (state === "opening") {
-			const raf = requestAnimationFrame(() => setState("open"));
-			return () => cancelAnimationFrame(raf);
-		}
-	}, [state]);
+	const close = () => {
+		tlRef.current = gsap.to(overlayRef.current, {
+			opacity: 0,
+			duration: 0.3,
+			ease: "cubic-bezier(0.65,0.05,0.36,1)",
+			onComplete: () => setMounted(false),
+		});
+	};
 
-	const visible = state === "open";
+	const onMount = (node: HTMLDivElement | null) => {
+		if (!node) return;
+		(overlayRef as React.MutableRefObject<HTMLDivElement>).current = node;
+		tlRef.current?.kill();
+		gsap.fromTo(node, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "cubic-bezier(0.65,0.05,0.36,1)" });
+	};
 
 	return (
 		<>
@@ -59,14 +65,10 @@ export function MobileMenu() {
 				<Menu size={24} />
 			</button>
 
-			{state !== "closed" && (
+			{mounted && (
 				<div
-					onTransitionEnd={onTransitionEnd}
-					style={{
-						transition: "opacity 300ms cubic-bezier(0.42, 0, 0.58, 1)",
-						opacity: visible ? 1 : 0,
-					}}
-					className="fixed inset-0 z-50 flex flex-col bg-primary-500 px-[18px] pt-[26px] pb-10"
+					ref={onMount}
+					className="fixed inset-0 z-50 flex flex-col bg-primary-500 px-4.5 pt-6.5 pb-10"
 				>
 					<div className="flex items-center justify-between">
 						<button
