@@ -41,7 +41,7 @@ export function MobileMenu() {
 	const close = () => {
 		tlRef.current = gsap.to(overlayRef.current, {
 			opacity: 0,
-			duration: 0.3,
+			duration: 0.2,
 			ease: "cubic-bezier(0.65,0.05,0.36,1)",
 			onComplete: () => setMounted(false),
 		});
@@ -51,7 +51,11 @@ export function MobileMenu() {
 		if (!node) return;
 		(overlayRef as React.MutableRefObject<HTMLDivElement>).current = node;
 		tlRef.current?.kill();
-		gsap.fromTo(node, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "cubic-bezier(0.65,0.05,0.36,1)" });
+		gsap.fromTo(
+			node,
+			{ opacity: 0 },
+			{ opacity: 1, duration: 0.3, ease: "cubic-bezier(0.65,0.05,0.36,1)" },
+		);
 	};
 
 	return (
