@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Primary palette (green) */
+  --color-primary-50: #f9fafa;
+  --color-primary-100: #f4f5f5;
+  --color-primary-200: #e3e8e4;
+  --color-primary-300: #c0cac2;
+  --color-primary-400: #9caa9f;
+  --color-primary-500: #697b6d;
+  --color-primary-600: #4c5951;
+  --color-primary-700: #3a463e;
+  --color-primary-800: #232a23;
+  --color-primary-900: #161d17;
+  --color-primary-950: #080d09;
+
+  /* Secondary palette (terracotta) */
+  --color-secondary-50: #fcf7f4;
+  --color-secondary-100: #f8ede8;
+  --color-secondary-200: #f3dfd5;
+  --color-secondary-300: #ecccbd;
+  --color-secondary-400: #dca68d;
+  --color-secondary-500: #cc8767;
+  --color-secondary-600: #b76d4b;
+  --color-secondary-700: #995a3c;
+  --color-secondary-800: #7f4d35;
+  --color-secondary-900: #6b4431;
+  --color-secondary-950: #392116;
+
+  --font-title: var(--font-yeseva-one);
+  --font-body: var(--font-josefin-sans);
+
+
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-primary-950);
+  --foreground: var(--color-primary-50);
 }
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+.text-title-xl { font-size: 53px; line-height: normal; }
+.text-title-lg { font-size: 43px; line-height: normal; }
+.text-title-md { font-size: 34px; line-height: normal; }
+.text-title-sm { font-size: 27px; line-height: normal; }
+
+.text-body-lg { font-size: 16px; line-height: 18px; letter-spacing: -0.04em; }
+.text-body-md { font-size: 14px; line-height: 16px; letter-spacing: -0.04em; }
+.text-body-sm { font-size: 12px; line-height: 14px; letter-spacing: -0.04em; }
+
+.nav-bg {
+background: linear-gradient(180deg, rgba(8, 13, 9, 0.40) 0%, rgba(8, 13, 9, 0.22) 52.4%, rgba(8, 13, 9, 0.08) 100%);
 }
