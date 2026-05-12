@@ -49,14 +49,15 @@ body {
   font-family: var(--font-body);
 }
 
-.text-title-xl { font-size: 53px; line-height: normal; }
-.text-title-lg { font-size: 43px; line-height: normal; }
-.text-title-md { font-size: 34px; line-height: normal; }
-.text-title-sm { font-size: 27px; line-height: normal; }
+@utility text-title-xl { font-size: 53px; line-height: normal; }
+@utility text-title-lg { font-size: 43px; line-height: normal; }
+@utility text-title-md { font-size: 34px; line-height: normal; }
+@utility text-title-sm { font-size: 27px; line-height: normal; }
 
-.text-body-lg { font-size: 16px; line-height: 18px; letter-spacing: -0.04em; }
-.text-body-md { font-size: 14px; line-height: 16px; letter-spacing: -0.04em; }
-.text-body-sm { font-size: 12px; line-height: 14px; letter-spacing: -0.04em; }
+@utility text-body-xl { font-size: 18px; line-height: 20px; letter-spacing: -0.04em; }
+@utility text-body-lg { font-size: 16px; line-height: 18px; letter-spacing: -0.04em; }
+@utility text-body-md { font-size: 14px; line-height: 16px; letter-spacing: -0.04em; }
+@utility text-body-sm { font-size: 12px; line-height: 14px; letter-spacing: -0.04em; }
 
 .nav-bg {
 background: linear-gradient(180deg, rgba(8, 13, 9, 0.40) 0%, rgba(8, 13, 9, 0.22) 52.4%, rgba(8, 13, 9, 0.08) 100%);
