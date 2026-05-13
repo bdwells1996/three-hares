@@ -31,16 +31,16 @@ function FindUs() {
 					</span>
 				</div>
 				<div className="py-[14px] my-4 flex flex-col gap-2 text-primary-950 lg:max-w-[500px] xl:max-w-[730px]">
-					<h3 className="text-[24px] font-title text-center text-left leading-[28px] lg:text-title-sm">
+					<h3 className="text-[24px] font-title text-center text-left leading-[28px] lg:text-title-sm xl:text-title-md">
 						We’re located between central Brighton & Kemptown
 					</h3>
 					<div className="flex flex-col gap-[18px] mt-[18px] lg:mt-[14px]">
-						<p className="text-body-lg">
+						<p className="text-body-lg xl:text-body-xl">
 							There are a number of ways to get to us, so we thought we’d
 							provide useful directions for the most common routes.
 						</p>
 						<div className="flex flex-col gap-[24px] lg:gap-5">
-							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px]">
+							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
 								<h4 className="font-semibold text-body-xl">By bus</h4>
 								<p>
 									We’re along the major routes from central Brighton to
@@ -49,7 +49,7 @@ function FindUs() {
 									the number 1 or 1x.
 								</p>
 							</div>
-							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px]">
+							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
 								<h4 className="font-semibold text-body-xl">By Train</h4>
 								<p>
 									We’re along the major routes from central Brighton to
@@ -58,7 +58,7 @@ function FindUs() {
 									the number 1 or 1x.
 								</p>
 							</div>
-							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px]">
+							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
 								<h4 className="font-semibold text-body-xl">Walking</h4>
 								<p>
 									We’re also easy to reach on foot, the nearest landmark is the
