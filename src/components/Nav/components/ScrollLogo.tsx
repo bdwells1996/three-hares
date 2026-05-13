@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { Logo } from "../../Logo";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +34,9 @@ export function ScrollLogo({ className }: { className?: string }) {
 
 	return (
 		<div ref={wrapperRef} className={className}>
-			<Logo />
+			<Link href="/">
+				<Logo />
+			</Link>
 		</div>
 	);
 }
