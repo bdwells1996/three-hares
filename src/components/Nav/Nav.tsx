@@ -1,11 +1,11 @@
 import { siInstagram, siFacebook } from "simple-icons";
 import Button from "../ui/Button";
-import { Logo } from "../Logo";
 import { navLinks } from "./navlinks";
 import Link from "next/link";
 import { Icon } from "../ui/Icon";
 import { StarAdornment } from "../icons/StarAdornment";
 import { MobileMenu } from "./components/MobileMenu";
+import { ScrollLogo } from "./components/ScrollLogo";
 
 function SimpleIcon({
 	icon,
@@ -46,7 +46,7 @@ function Nav() {
 						</a>
 					</div>
 				</div>
-				<Logo className="absolute left-1/2 -translate-x-1/2" />
+				<ScrollLogo className="absolute left-1/2 -translate-x-1/2" />
 				<div className="flex items-center gap-3.5">
 					<Link href="/contact" className="md:hidden">
 						<Button tabIndex={-1}>

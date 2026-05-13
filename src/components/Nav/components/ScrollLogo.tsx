@@ -1,0 +1,39 @@
+"use client";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import { Logo } from "../../Logo";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export function ScrollLogo({ className }: { className?: string }) {
+	const wrapperRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const el = wrapperRef.current;
+		if (!el) return;
+
+		const tween = gsap.to(el, {
+			rotation: 360,
+			ease: "none",
+			scrollTrigger: {
+				trigger: document.body,
+				start: "top top",
+				end: "+=2000",
+				scrub: 1,
+			},
+		});
+
+		return () => {
+			tween.scrollTrigger?.kill();
+			tween.kill();
+		};
+	}, []);
+
+	return (
+		<div ref={wrapperRef} className={className}>
+			<Logo />
+		</div>
+	);
+}
