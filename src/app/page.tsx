@@ -1,47 +1,24 @@
-import { getImageProps } from "next/image";
+import Header from "@/components/layout/Header/Header";
+import BorderDivider from "@/components/layout/BorderDivider/BorderDivider";
+import FindUs from "./_components/FindUs";
 
 export default function Home() {
-	const common = { alt: "Header", sizes: "100vw", priority: true };
-
-	const { props: xlProps } = getImageProps({
-		...common,
-		src: "/images/home/header-xl.jpg",
-		width: 1920,
-		height: 1080,
-	});
-	const { props: lgProps } = getImageProps({
-		...common,
-		src: "/images/home/header-lg.jpg",
-		width: 1240,
-		height: 698,
-	});
-	const { props: mdProps } = getImageProps({
-		...common,
-		src: "/images/home/header-md.jpg",
-		width: 768,
-		height: 432,
-	});
-	const { props: smProps } = getImageProps({
-		...common,
-		src: "/images/home/header-sm.jpg",
-		width: 448,
-		height: 494,
-	});
-
 	return (
 		<main>
-			<header className="h-svh w-full">
-				<picture>
-					<source media="(max-width: 448px)" srcSet={smProps.srcSet} />
-					<source media="(max-width: 768px)" srcSet={mdProps.srcSet} />
-					<source media="(max-width: 1240px)" srcSet={lgProps.srcSet} />
-					<img
-						{...xlProps}
-						alt="hares-header"
-						className="w-full h-full object-cover"
-					/>
-				</picture>
-			</header>
+			<Header
+				images={{
+					xl: { src: "/images/home/header-xl.jpg", width: 1920, height: 1080 },
+					lg: { src: "/images/home/header-lg.jpg", width: 1240, height: 698 },
+					md: { src: "/images/home/header-md.jpg", width: 768, height: 432 },
+					sm: { src: "/images/home/header-sm.jpg", width: 448, height: 494 },
+				}}
+				title="Tattoos from the heart of Sussex"
+				subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
+				buttonLink="/contact"
+				buttonText="Book your visit"
+			/>
+			<BorderDivider variant="flower" />
+			<FindUs />
 		</main>
 	);
 }
