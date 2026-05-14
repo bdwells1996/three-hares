@@ -15,13 +15,16 @@ export function ScrollLogo({ className }: { className?: string }) {
 		const el = wrapperRef.current;
 		if (!el) return;
 
+		const totalScroll = document.body.scrollHeight - window.innerHeight;
+		const rotations = totalScroll / 2000;
+
 		const tween = gsap.to(el, {
-			rotation: 360,
+			rotation: 360 * rotations,
 			ease: "none",
 			scrollTrigger: {
 				trigger: document.body,
 				start: "top top",
-				end: "+=2000",
+				end: `+=${totalScroll}`,
 				scrub: 1,
 			},
 		});
