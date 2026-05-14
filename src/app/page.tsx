@@ -37,7 +37,9 @@ export default function Home() {
 			<HaresBorder />
 			<OurWork />
 			<InstagramGallery />
-			<BorderDivider variant="flower" />
+			<span className="block -mb-px">
+				<BorderDivider variant="flower" />
+			</span>
 			<CTABanner
 				title="Like what you see?"
 				buttons={buttonConfig}
