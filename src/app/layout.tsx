@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Josefin_Sans, Yeseva_One } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav/Nav";
+import Footer from "@/components/Footer/Footer";
 
 const yesevaOne = Yeseva_One({
 	variable: "--font-yeseva-one",
@@ -32,6 +33,7 @@ export default function RootLayout({
 			<body className="min-h-full flex flex-col">
 				<Nav />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
