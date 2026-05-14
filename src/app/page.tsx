@@ -1,6 +1,21 @@
 import Header from "@/components/layout/Header/Header";
 import BorderDivider from "@/components/layout/BorderDivider/BorderDivider";
 import FindUs from "./_components/FindUs";
+import HaresBorder from "@/components/layout/HaresBorder/HaresBorder";
+import OurWork from "./_components/OurWork";
+import InstagramGallery from "@/components/InstagramGallery/InstagramGallery";
+import CTABanner from "@/components/ui/CTABanner";
+
+const buttonConfig = [
+	{
+		buttonText: "See more work",
+		buttonLink: "/our-work",
+	},
+	{
+		buttonText: "Contact us",
+		buttonLink: "/contact",
+	},
+];
 
 export default function Home() {
 	return (
@@ -19,6 +34,15 @@ export default function Home() {
 			/>
 			<BorderDivider variant="flower" />
 			<FindUs />
+			<HaresBorder />
+			<OurWork />
+			<InstagramGallery />
+			<BorderDivider variant="flower" />
+			<CTABanner
+				title="Like what you see?"
+				buttons={buttonConfig}
+				variant="secondary"
+			/>
 		</main>
 	);
 }
