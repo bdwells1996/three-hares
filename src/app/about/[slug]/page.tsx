@@ -6,6 +6,7 @@ import { teamMembers } from "../components/MeetTheTeam/teamMembers";
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { StarAdornment } from "@/components/icons/StarAdornment";
+import BorderDivider from "@/components/layout/BorderDivider/BorderDivider";
 
 const ctaButtons = [
 	{ buttonText: "Get booked in with us", buttonLink: "/contact" },
@@ -71,7 +72,13 @@ export default async function ArtistPage({
 					</div>
 				</div>
 			</section>
-			<InstagramGallery className="py-4 lg:py-10" variant="secondary" />
+			<span className="block -mb-px">
+				<BorderDivider variant="botanical" />
+			</span>
+			<InstagramGallery className="py-2 lg:py-8" variant="secondary" />
+			<span className="block -mb-px">
+				<BorderDivider variant="botanical" />
+			</span>
 			<CTABanner title={`Like ${member.name}'s work?`} buttons={ctaButtons} />
 		</main>
 	);
