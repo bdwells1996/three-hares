@@ -55,7 +55,7 @@ function MeetTheTeamItem({ member, direction = "left" }: MeetTheTeamItemProps) {
 				</div>
 				<div className="flex flex-col gap-4.5">
 					<p className="text-body-lg text-primary-800">{member.description}</p>
-					<Link href={`/about/${member.buttonLink}`}>
+					<Link href={member.buttonLink}>
 						<Button>{member.buttonText}</Button>
 					</Link>
 				</div>

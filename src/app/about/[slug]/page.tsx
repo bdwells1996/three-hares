@@ -13,8 +13,8 @@ const ctaButtons = [
 
 export function generateStaticParams() {
 	return teamMembers
-		.filter((m) => !m.buttonLink.startsWith("/"))
-		.map((m) => ({ slug: m.buttonLink }));
+		.filter((m) => m.buttonLink.startsWith("/about/"))
+		.map((m) => ({ slug: m.buttonLink.replace("/about/", "") }));
 }
 
 export default async function ArtistPage({
@@ -23,7 +23,7 @@ export default async function ArtistPage({
 	params: Promise<{ slug: string }>;
 }) {
 	const { slug } = await params;
-	const member = teamMembers.find((m) => m.buttonLink === slug);
+	const member = teamMembers.find((m) => m.buttonLink === `/about/${slug}`);
 
 	if (!member) notFound();
 
