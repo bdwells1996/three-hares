@@ -10,20 +10,20 @@ export function FolkArrow(props: SVGProps<SVGSVGElement>) {
 			xmlns="http://www.w3.org/2000/svg"
 			aria-label="Folk arrow"
 		>
-			<g clip-path="url(#clip0_38_2797)">
+			<g clipPath="url(#clip0_38_2797)">
 				<path
 					d="M4.474 5.01422L13.274 13.8142L22.074 5.01422"
 					stroke="#F9FAFA"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+					strokeWidth="2"
+					strokeLinecap="round"
+					strokeLinejoin="round"
 				/>
 				<path
 					d="M1.14703 9.81421L13.2739 21.9411L25.4008 9.81421"
 					stroke="#F9FAFA"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+					strokeWidth="2"
+					strokeLinecap="round"
+					strokeLinejoin="round"
 				/>
 			</g>
 			<defs>

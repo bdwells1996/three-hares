@@ -1,8 +1,20 @@
 "use client";
 
 import Header from "@/components/layout/Header/Header";
-import MeetTheTeam from "./components/MeetTheTeam";
+import MeetTheTeam from "./components/MeetTheTeam/MeetTheTeam";
 import { useRef } from "react";
+import CTABanner from "@/components/ui/CTABanner";
+
+const buttonConfig = [
+	{
+		buttonText: "See more work",
+		buttonLink: "/our-work",
+	},
+	{
+		buttonText: "Contact us",
+		buttonLink: "/contact",
+	},
+];
 
 function About() {
 	const meetTheTeamRef = useRef<HTMLElement>(null);
@@ -21,6 +33,7 @@ function About() {
 				scrollTargetRef={meetTheTeamRef}
 			/>
 			<MeetTheTeam ref={meetTheTeamRef} />
+			<CTABanner title="Want to work with us?" buttons={buttonConfig} />
 		</main>
 	);
 }
