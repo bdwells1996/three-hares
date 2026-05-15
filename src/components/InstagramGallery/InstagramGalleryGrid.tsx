@@ -22,13 +22,12 @@ export default function InstagramGalleryGrid({
 }) {
 	const [showMore, setShowMore] = useState(false);
 
-	const visible =
-		cap && !showMore ? posts.slice(0, cap) : posts;
+	const visible = cap && !showMore ? posts.slice(0, cap) : posts;
 	const extraRow = cap ? posts.slice(cap, cap + 4) : [];
 	const hasMore = cap && !showMore && extraRow.length > 0;
 
 	return (
-		<div className="flex flex-col items-center gap-6 max-w-310 w-full">
+		<div className="flex flex-col items-center gap-8 max-w-310 w-full">
 			<div className="grid grid-cols-1 w-full px-4 sm:grid-cols-2 lg:px-8 lg:grid-cols-3 xl:grid-cols-4 gap-4.5">
 				{visible.map((post) => {
 					const imageUrl =
@@ -55,9 +54,7 @@ export default function InstagramGalleryGrid({
 					);
 				})}
 			</div>
-			{hasMore && (
-				<Button onClick={() => setShowMore(true)}>See more</Button>
-			)}
+			{hasMore && <Button onClick={() => setShowMore(true)}>See more</Button>}
 		</div>
 	);
 }
