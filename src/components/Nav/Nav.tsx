@@ -41,7 +41,9 @@ function Nav() {
 	}, []);
 
 	return (
-		<nav className={`fixed top-0 w-full flex items-center justify-center py-[26px] pl-[18px] pr-[22px] z-100 nav-bg${scrolled ? " nav-bg--scrolled" : ""}`}>
+		<nav
+			className={`fixed top-0 w-full flex items-center justify-center py-[26px] pl-[18px] pr-[22px] z-100 nav-bg${scrolled ? " nav-bg--scrolled" : ""}`}
+		>
 			<div className="max-w-[1440px] w-full h-full flex justify-between items-center relative">
 				<div className="flex items-center gap-3.5">
 					<MobileMenu />
@@ -66,16 +68,16 @@ function Nav() {
 					</Link>
 					<ul className="hidden md:flex items-center gap-4">
 						{navLinks.map((link) => (
-							<li
-								key={`nav-link-${link.href}`}
-								className="flex items-center gap-2"
-							>
-								<Icon
-									icon={StarAdornment}
-									size={14}
-									className="hidden lg:block"
-								/>
-								<a href={link.href} className="text-body-lg xl:text-body-xl">
+							<li key={`nav-link-${link.href}`}>
+								<a
+									href={link.href}
+									className="text-body-lg xl:text-body-xl flex items-center gap-2 group hover:text-primary-400 transition-colors duration-300"
+								>
+									<Icon
+										icon={StarAdornment}
+										size={14}
+										className="hidden lg:block group-hover:rotate-90 transition-transform duration-300"
+									/>
 									{link.label}
 								</a>
 							</li>
