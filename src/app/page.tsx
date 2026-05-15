@@ -31,6 +31,7 @@ export default function Home() {
 				subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
 				buttonLink="/contact"
 				buttonText="Book your visit"
+				showScrollButton={false}
 			/>
 			<BorderDivider variant="flower" />
 			<FindUs />
