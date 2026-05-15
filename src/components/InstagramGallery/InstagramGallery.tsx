@@ -32,7 +32,14 @@ export default async function InstagramGallery() {
 
 	const posts = await fetchInstagramFeed(token);
 
-	if (!posts.length) return null;
+	if (!posts.length)
+		return (
+			<section className="px-4 bg-primary-300 flex justify-center pb-12">
+				<h3 className="text-center text-title-sm text-primary-950">
+					Check back soon when we have more work to show!
+				</h3>
+			</section>
+		);
 
 	return (
 		<section className="px-4 bg-primary-300 flex justify-center pb-12">
