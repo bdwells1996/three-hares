@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Image from "next/image";
+import InstagramGalleryGrid from "./InstagramGalleryGrid";
 
 type InstagramMedia = {
 	id: string;
@@ -26,18 +26,35 @@ async function fetchInstagramFeed(token: string): Promise<InstagramMedia[]> {
 	return json.data ?? [];
 }
 
+function interlace(feeds: InstagramMedia[][]): InstagramMedia[] {
+	const result: InstagramMedia[] = [];
+	const max = Math.max(...feeds.map((f) => f.length));
+	for (let i = 0; i < max; i++) {
+		for (const feed of feeds) {
+			if (i < feed.length) result.push(feed[i]);
+		}
+	}
+	return result;
+}
+
 export default async function InstagramGallery({
 	variant = "primary",
 	className,
+	cap,
 }: {
 	variant?: "primary" | "secondary";
 	className?: string;
+	cap?: number;
 }) {
-	const token = process.env.INSTAGRAM_ACCESS_TOKEN_BEN;
+	const tokens = [
+		process.env.INSTAGRAM_ACCESS_TOKEN_BEN,
+		process.env.INSTAGRAM_ACCESS_TOKEN_SASHA,
+	].filter(Boolean) as string[];
 
-	if (!token) return null;
+	if (!tokens.length) return null;
 
-	const posts = await fetchInstagramFeed(token);
+	const feeds = await Promise.all(tokens.map(fetchInstagramFeed));
+	const posts = feeds.length === 1 ? feeds[0] : interlace(feeds);
 
 	const sectionClass = clsx(
 		"px-4 flex justify-center pb-12",
@@ -56,32 +73,7 @@ export default async function InstagramGallery({
 
 	return (
 		<section className={sectionClass}>
-			<div className="grid grid-cols-1 max-w-310 w-full px-4 sm:grid-cols-2 lg:px-8 lg:grid-cols-3 xl:grid-cols-4 gap-4.5">
-				{posts.map((post) => {
-					const imageUrl =
-						post.media_type === "VIDEO" ? post.thumbnail_url : post.media_url;
-
-					if (!imageUrl) return null;
-
-					return (
-						<a
-							key={post.id}
-							href={post.permalink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="relative aspect-269/400 overflow-hidden block rounded-lg"
-						>
-							<Image
-								src={imageUrl}
-								alt="Instagram post"
-								fill
-								className="object-cover transition-transform duration-300 hover:scale-105"
-								sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-							/>
-						</a>
-					);
-				})}
-			</div>
+			<InstagramGalleryGrid posts={posts} cap={cap} />
 		</section>
 	);
 }
