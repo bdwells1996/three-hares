@@ -107,7 +107,7 @@ opacity: 1;
 }
 
 .btn:hover {
-  color: var(--color-primary-500);
+  color: var(--color-primary-600);
 }
 
 .image-offset-border::before {

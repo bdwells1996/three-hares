@@ -1,6 +1,6 @@
 "use client";
 
-import { siInstagram, siFacebook } from "simple-icons";
+import { siInstagram, siTiktok } from "simple-icons";
 import Button from "../ui/Button";
 import { navLinks } from "./navlinks";
 import Link from "next/link";
@@ -51,11 +51,19 @@ function Nav() {
 						<Link href="/contact">
 							<Button tabIndex={-1}>Contact us</Button>
 						</Link>
-						<a href="https://instagram.com" aria-label="Instagram">
+						<a
+							href="https://instagram.com"
+							aria-label="Instagram"
+							className="hover:text-primary-400 transition-colors duration-300"
+						>
 							<SimpleIcon icon={siInstagram} size={21} />
 						</a>
-						<a href="https://facebook.com" aria-label="Facebook">
-							<SimpleIcon icon={siFacebook} size={21} />
+						<a
+							href="https://facebook.com"
+							aria-label="Facebook"
+							className="hover:text-primary-400 transition-colors duration-300"
+						>
+							<SimpleIcon icon={siTiktok} size={21} />
 						</a>
 					</div>
 				</div>
