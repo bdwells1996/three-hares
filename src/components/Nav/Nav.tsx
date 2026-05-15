@@ -30,7 +30,7 @@ function SimpleIcon({
 
 function Nav() {
 	return (
-		<nav className="fixed top-0 w-full nav-bg flex items-center justify-center py-[26px] px-[18px] z-100">
+		<nav className="fixed top-0 w-full nav-bg flex items-center justify-center py-[26px] pl-[18px] pr-[22px] z-100">
 			<div className="max-w-[1440px] w-full h-full flex justify-between items-center relative">
 				<div className="flex items-center gap-3.5">
 					<MobileMenu />
@@ -64,10 +64,7 @@ function Nav() {
 									size={14}
 									className="hidden lg:block"
 								/>
-								<a
-									href={link.href}
-									className="text-body-md lg:text-body-lg xl:text-body-xl"
-								>
+								<a href={link.href} className="text-body-lg xl:text-body-xl">
 									{link.label}
 								</a>
 							</li>
