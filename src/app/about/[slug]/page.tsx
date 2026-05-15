@@ -71,7 +71,7 @@ export default async function ArtistPage({
 					</div>
 				</div>
 			</section>
-			<InstagramGallery className="py-10" variant="secondary" />
+			<InstagramGallery className="py-4 lg:py-10" variant="secondary" />
 			<CTABanner title={`Like ${member.name}'s work?`} buttons={ctaButtons} />
 		</main>
 	);
