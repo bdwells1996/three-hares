@@ -1,0 +1,36 @@
+import { type SVGProps } from "react";
+
+export function FolkArrow(props: SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			width="26"
+			height="26"
+			viewBox="0 0 26 26"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-label="Folk arrow"
+		>
+			<g clipPath="url(#clip0_38_2797)">
+				<path
+					d="M4.474 5.01422L13.274 13.8142L22.074 5.01422"
+					stroke="#F9FAFA"
+					strokeWidth="2"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+				<path
+					d="M1.14703 9.81421L13.2739 21.9411L25.4008 9.81421"
+					stroke="#F9FAFA"
+					strokeWidth="2"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+			</g>
+			<defs>
+				<clipPath id="clip0_38_2797">
+					<rect width="26" height="26" fill="white" />
+				</clipPath>
+			</defs>
+		</svg>
+	);
+}

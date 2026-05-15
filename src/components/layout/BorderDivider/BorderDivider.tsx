@@ -1,12 +1,16 @@
-type BorderVariant = "flower";
+import BotanicalBorder from "./BotanicalBorder";
+
+type BorderVariant = "flower" | "botanical";
 
 type BorderDividerProps = {
 	variant: BorderVariant;
 };
 
-const variantSources: Record<
-	BorderVariant,
-	{ breakpoint: string; src: string; width: number; height: number }[]
+const variantSources: Partial<
+	Record<
+		BorderVariant,
+		{ breakpoint: string; src: string; width: number; height: number }[]
+	>
 > = {
 	flower: [
 		{
@@ -44,23 +48,23 @@ const variantSources: Record<
 
 const variantDefault: Record<BorderVariant, string> = {
 	flower: "/images/borders/flower-border/flower-border-xxl.svg",
+	botanical: "/images/borders/botanical-border/botanical-border.svg",
 };
 
 export default function BorderDivider({ variant }: BorderDividerProps) {
+	if (variant === "botanical") {
+		return <BotanicalBorder />;
+	}
+
 	const sources = variantSources[variant];
 	const fallback = variantDefault[variant];
 
 	return (
 		<picture className="block w-full">
-			{sources.map(({ breakpoint, src }) => (
+			{sources?.map(({ breakpoint, src }) => (
 				<source key={breakpoint} media={breakpoint} srcSet={src} />
 			))}
-			<img
-				src={fallback}
-				alt=""
-				role="presentation"
-				className="w-full h-auto"
-			/>
+			<img src={fallback} alt="" className="w-full h-auto" />
 		</picture>
 	);
 }

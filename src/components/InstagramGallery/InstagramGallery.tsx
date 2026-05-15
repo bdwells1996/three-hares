@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Image from "next/image";
 
 type InstagramMedia = {
@@ -25,16 +26,28 @@ async function fetchInstagramFeed(token: string): Promise<InstagramMedia[]> {
 	return json.data ?? [];
 }
 
-export default async function InstagramGallery() {
+export default async function InstagramGallery({
+	variant = "primary",
+	className,
+}: {
+	variant?: "primary" | "secondary";
+	className?: string;
+}) {
 	const token = process.env.INSTAGRAM_ACCESS_TOKEN_BEN;
 
 	if (!token) return null;
 
 	const posts = await fetchInstagramFeed(token);
 
+	const sectionClass = clsx(
+		"px-4 flex justify-center pb-12",
+		variant === "primary" ? "bg-primary-300" : "bg-secondary-300",
+		className,
+	);
+
 	if (!posts.length)
 		return (
-			<section className="px-4 bg-primary-300 flex justify-center pb-12">
+			<section className={sectionClass}>
 				<h3 className="text-center text-title-sm text-primary-950">
 					Check back soon when we have more work to show!
 				</h3>
@@ -42,8 +55,8 @@ export default async function InstagramGallery() {
 		);
 
 	return (
-		<section className="px-4 bg-primary-300 flex justify-center pb-12">
-			<div className="grid grid-cols-1 max-w-[1240px] w-full px-4 sm:grid-cols-2 lg:px-8 lg:grid-cols-3 xl:grid-cols-4 gap-4.5">
+		<section className={sectionClass}>
+			<div className="grid grid-cols-1 max-w-310 w-full px-4 sm:grid-cols-2 lg:px-8 lg:grid-cols-3 xl:grid-cols-4 gap-4.5">
 				{posts.map((post) => {
 					const imageUrl =
 						post.media_type === "VIDEO" ? post.thumbnail_url : post.media_url;
@@ -56,7 +69,7 @@ export default async function InstagramGallery() {
 							href={post.permalink}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="relative aspect-[269/400] overflow-hidden block rounded-lg"
+							className="relative aspect-269/400 overflow-hidden block rounded-lg"
 						>
 							<Image
 								src={imageUrl}

@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { clsx } from "clsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,9 +16,25 @@ const HARE_GAP = 60;
 // At 1920px: ceil(1920 / (165+60)) = 9 visible, so 18 + 2 headroom = 20
 const HARE_COUNT = 18;
 
-export default function HaresBorder() {
+interface HaresBorderProps {
+	className?: string;
+	/** Scale multiplier for hare size. Default 1 (normal border size). */
+	scale?: number;
+	/** Scroll distance multiplier — lower = slower parallax. Default 0.15. */
+	parallaxStrength?: number;
+}
+
+export default function HaresBorder({
+	className,
+	scale = 1,
+	parallaxStrength = 0.15,
+}: HaresBorderProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const trackRef = useRef<HTMLDivElement>(null);
+
+	const width = HARE_WIDTH * scale;
+	const height = HARE_HEIGHT * scale;
+	const gap = HARE_GAP * scale;
 
 	useEffect(() => {
 		const track = trackRef.current;
@@ -26,7 +43,7 @@ export default function HaresBorder() {
 
 		// Half the hares fill the screen; the other half are the off-screen buffer.
 		// Animate by exactly half the total track width so the buffer replaces the visible set.
-		const halfWidth = (HARE_COUNT / 2) * (HARE_WIDTH + HARE_GAP) * 0.15;
+		const halfWidth = (HARE_COUNT / 2) * (width + gap) * parallaxStrength;
 
 		gsap.set(track, { x: 0 });
 
@@ -45,18 +62,21 @@ export default function HaresBorder() {
 			tween.scrollTrigger?.kill();
 			tween.kill();
 		};
-	}, []);
+	}, [width, gap, parallaxStrength]);
 
 	return (
 		<div
 			ref={containerRef}
-			className="w-full overflow-hidden bg-secondary-100 py-5"
+			className={clsx(
+				"w-full overflow-hidden bg-secondary-100 py-5",
+				className,
+			)}
 			aria-hidden="true"
 		>
 			<div
 				ref={trackRef}
 				className="flex will-change-transform"
-				style={{ gap: HARE_GAP }}
+				style={{ gap }}
 			>
 				{Array.from({ length: HARE_COUNT }).map((_, i) => (
 					<Image
@@ -64,8 +84,8 @@ export default function HaresBorder() {
 						key={i}
 						src="/images/borders/hares-border/hares-border-hare.svg"
 						alt=""
-						width={HARE_WIDTH}
-						height={HARE_HEIGHT}
+						width={width}
+						height={height}
 						className="shrink-0"
 					/>
 				))}
