@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 
 const TILE_W = 240;
 
-export default function BotanicalBorder() {
+interface BotanicalBorderProps {
+	variant?: "default" | "muted";
+}
+
+export default function BotanicalBorder({ variant = "default" }: BotanicalBorderProps) {
 	const [count, setCount] = useState(8);
 
 	useEffect(() => {
@@ -15,12 +19,16 @@ export default function BotanicalBorder() {
 		return () => window.removeEventListener("resize", update);
 	}, []);
 
+	const src = variant === "muted"
+		? "/images/borders/botanical-border/botanical-border-muted.svg"
+		: "/images/borders/botanical-border/botanical-border.svg";
+
 	return (
 		<div className="flex w-full" role="presentation">
 			{Array.from({ length: count }).map((_, i) => (
 				<img
 					key={i}
-					src="/images/borders/botanical-border/botanical-border.svg"
+					src={src}
 					style={{ width: `${100 / count}%` }}
 					alt=""
 				/>
