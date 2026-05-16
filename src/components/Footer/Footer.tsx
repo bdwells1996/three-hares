@@ -58,7 +58,7 @@ function Footer() {
 						</a>
 					</div>
 					<p className="text-body-sm">
-						Copyright Three Hares {new Date().getFullYear()}
+						Copyright Three Hares {new Date().getFullYear()}©
 					</p>
 				</div>
 			</div>
