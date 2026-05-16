@@ -1,17 +1,20 @@
 import Button from "@/components/ui/Button";
-import { type TeamMember } from "../teamMembers";
+import type { SanityTeamMember } from "../MeetTheTeam";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { Icon } from "@/components/ui/Icon";
 import { StarAdornment } from "@/components/icons/StarAdornment";
+import { urlFor } from "@/sanity/lib/image";
 
 interface MeetTheTeamItemProps {
-	member: TeamMember;
+	member: SanityTeamMember;
 	direction?: "left" | "right";
 }
 
 function MeetTheTeamItem({ member, direction = "left" }: MeetTheTeamItemProps) {
+	const imageUrl = urlFor(member.image).width(560).height(424).url();
+
 	return (
 		<div
 			className={clsx(
@@ -28,7 +31,7 @@ function MeetTheTeamItem({ member, direction = "left" }: MeetTheTeamItemProps) {
 					className="w-1/3 h-auto"
 				/>
 				<Image
-					src={member.image}
+					src={imageUrl}
 					alt={member.name}
 					width={280}
 					height={212}

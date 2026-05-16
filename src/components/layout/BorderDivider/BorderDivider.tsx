@@ -1,9 +1,10 @@
 import BotanicalBorder from "./BotanicalBorder";
 
-type BorderVariant = "flower" | "botanical";
+type BorderVariant = "flower" | "botanical" | "botanical-muted";
 
 type BorderDividerProps = {
 	variant: BorderVariant;
+	flipped?: boolean;
 };
 
 const variantSources: Partial<
@@ -49,18 +50,21 @@ const variantSources: Partial<
 const variantDefault: Record<BorderVariant, string> = {
 	flower: "/images/borders/flower-border/flower-border-xxl.svg",
 	botanical: "/images/borders/botanical-border/botanical-border.svg",
+	"botanical-muted": "/images/borders/botanical-border/botanical-border-muted.svg",
 };
 
-export default function BorderDivider({ variant }: BorderDividerProps) {
-	if (variant === "botanical") {
-		return <BotanicalBorder />;
+export default function BorderDivider({ variant, flipped }: BorderDividerProps) {
+	const flipClass = flipped ? "rotate-180" : "";
+
+	if (variant === "botanical" || variant === "botanical-muted") {
+		return <BotanicalBorder src={variantDefault[variant]} className={flipClass} />;
 	}
 
 	const sources = variantSources[variant];
 	const fallback = variantDefault[variant];
 
 	return (
-		<picture className="block w-full">
+		<picture className={`block w-full ${flipClass}`}>
 			{sources?.map(({ breakpoint, src }) => (
 				<source key={breakpoint} media={breakpoint} srcSet={src} />
 			))}
