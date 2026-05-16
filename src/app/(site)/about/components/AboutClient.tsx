@@ -1,9 +1,10 @@
 "use client";
 
 import Header from "@/components/layout/Header/Header";
-import MeetTheTeam from "./components/MeetTheTeam/MeetTheTeam";
-import { useRef } from "react";
+import MeetTheTeam from "./MeetTheTeam/MeetTheTeam";
 import CTABanner from "@/components/ui/CTABanner";
+import { useRef } from "react";
+import type { SanityTeamMember } from "./MeetTheTeam/MeetTheTeam";
 
 const buttonConfig = [
 	{
@@ -16,7 +17,11 @@ const buttonConfig = [
 	},
 ];
 
-function About() {
+interface AboutClientProps {
+	members: SanityTeamMember[];
+}
+
+export default function AboutClient({ members }: AboutClientProps) {
 	const meetTheTeamRef = useRef<HTMLElement>(null);
 
 	return (
@@ -32,10 +37,8 @@ function About() {
 				subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
 				scrollTargetRef={meetTheTeamRef}
 			/>
-			<MeetTheTeam ref={meetTheTeamRef} />
+			<MeetTheTeam ref={meetTheTeamRef} members={members} />
 			<CTABanner title="Want to work with us?" buttons={buttonConfig} />
 		</main>
 	);
 }
-
-export default About;

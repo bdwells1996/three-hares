@@ -6,7 +6,9 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "eslint"
+		"lint": "eslint",
+		"seed:faq": "tsx --env-file=.env.local scripts/seedFaq.ts",
+		"seed:team": "tsx --env-file=.env.local scripts/seedTeamMembers.ts"
 	},
 	"dependencies": {
 		"@portabletext/react": "^6.2.0",
