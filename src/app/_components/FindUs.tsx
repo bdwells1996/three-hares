@@ -21,12 +21,10 @@ function FindUs() {
 							></iframe>
 						</div>
 					</div>
-					<span>
-						<p className="text-body-lg text-primary-950">
-							Unit 2, 129 - 130 The Design Quarter
-						</p>
-						<p className="text-body-lg text-primary-950">Edward St, Kemptown</p>
-						<p className="text-body-lg text-primary-950">Brighton</p>
+					<span className="text-body-lg font-semibold text-primary-950">
+						<p>Unit 2, 129 - 130 The Design Quarter</p>
+						<p>Edward St, Kemptown</p>
+						<p>Brighton</p>
 						<p className="text-body-lg text-primary-950">BN2 0JL</p>
 					</span>
 				</div>

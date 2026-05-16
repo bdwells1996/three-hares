@@ -37,7 +37,7 @@ export default function Home() {
 			<FindUs />
 			<HaresBorder />
 			<OurWork />
-			<InstagramGallery />
+			<InstagramGallery cap={12} />
 			<span className="block -mb-px">
 				<BorderDivider variant="flower" />
 			</span>
