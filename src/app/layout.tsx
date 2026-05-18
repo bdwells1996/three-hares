@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Yeseva_One } from "next/font/google";
+import Nav from "@/components/Nav/Nav";
+import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 
 const yesevaOne = Yeseva_One({
@@ -28,7 +30,11 @@ export default function RootLayout({
 			lang="en"
 			className={`${yesevaOne.variable} ${josefinSans.variable} h-full antialiased`}
 		>
-			<body className="min-h-full flex flex-col">{children}</body>
+			<body className="min-h-full flex flex-col">
+				<Nav />
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 }
