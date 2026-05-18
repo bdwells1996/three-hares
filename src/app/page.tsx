@@ -27,7 +27,7 @@ export default function Home() {
 					md: { src: "/images/home/header-md.jpg", width: 768, height: 432 },
 					sm: { src: "/images/home/header-sm.jpg", width: 448, height: 494 },
 				}}
-				title="Tattoos from the heart of Sussex"
+				title="Tattoos from the heart of Brighton"
 				subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
 				buttonLink="/contact"
 				buttonText="Book your visit"
