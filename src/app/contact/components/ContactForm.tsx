@@ -19,11 +19,11 @@ export default function ContactForm() {
 
 	if (state.status === "success") {
 		return (
-			<div className="flex flex-col items-center gap-4 py-12">
+			<div className="flex flex-col items-center gap-4 py-8">
 				<p className="font-title text-title-sm text-primary-950 text-center">
 					Message sent!
 				</p>
-				<p className="text-body-md text-primary-500 text-center">
+				<p className="text-body-lg text-primary-950 text-center xl:text-body-xl">
 					We&apos;ll be in touch soon.
 				</p>
 			</div>
@@ -83,7 +83,7 @@ export default function ContactForm() {
 					id="message"
 					name="message"
 					placeholder="Type your message here"
-					className="bg-white border border-primary-400 rounded-md px-3 py-2 h-20 text-body-md font-body text-primary-950 placeholder:text-primary-500 focus:outline-none focus:border-primary-600 resize-none"
+					className="bg-white border border-primary-400 rounded-md px-3 py-2 h-20 text-body-lg font-body text-primary-950 placeholder:text-primary-500 focus:outline-none focus:border-primary-600 resize-none lg:h-28"
 				/>
 				{errors.message && (
 					<p className="text-red-600 text-body-sm">{errors.message[0]}</p>

@@ -8,7 +8,13 @@ interface SelectInputProps {
 	error?: string[];
 }
 
-export default function SelectInput({ label, name, placeholder, options, error }: SelectInputProps) {
+export default function SelectInput({
+	label,
+	name,
+	placeholder,
+	options,
+	error,
+}: SelectInputProps) {
 	return (
 		<div className="flex flex-col gap-1 w-full">
 			<label htmlFor={name} className="text-body-md text-primary-950 font-body">
@@ -19,7 +25,7 @@ export default function SelectInput({ label, name, placeholder, options, error }
 					id={name}
 					name={name}
 					defaultValue=""
-					className="appearance-none bg-white border border-primary-400 rounded-md px-3 py-2 h-[42px] w-full text-body-md font-body text-primary-500 focus:outline-none focus:border-primary-600 cursor-pointer"
+					className="appearance-none bg-white border border-primary-400 rounded-md px-3 py-2 h-[42px] w-full text-body-lg font-body text-primary-500 focus:outline-none focus:border-primary-600 cursor-pointer"
 				>
 					<option value="" disabled>
 						{placeholder}
