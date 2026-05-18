@@ -1,6 +1,6 @@
 import BotanicalBorder from "./BotanicalBorder";
 
-type BorderVariant = "flower" | "botanical" | "botanical-muted";
+type BorderVariant = "flower" | "botanical" | "botanical-muted" | "botanical-muted-green";
 
 type BorderDividerProps = {
 	variant: BorderVariant;
@@ -51,12 +51,13 @@ const variantDefault: Record<BorderVariant, string> = {
 	flower: "/images/borders/flower-border/flower-border-xxl.svg",
 	botanical: "/images/borders/botanical-border/botanical-border.svg",
 	"botanical-muted": "/images/borders/botanical-border/botanical-border-muted.svg",
+	"botanical-muted-green": "/images/borders/botanical-border/botanical-border-muted-green.svg",
 };
 
 export default function BorderDivider({ variant, flipped }: BorderDividerProps) {
 	const flipClass = flipped ? "rotate-180" : "";
 
-	if (variant === "botanical" || variant === "botanical-muted") {
+	if (variant === "botanical" || variant === "botanical-muted" || variant === "botanical-muted-green") {
 		return <BotanicalBorder src={variantDefault[variant]} className={flipClass} />;
 	}
 

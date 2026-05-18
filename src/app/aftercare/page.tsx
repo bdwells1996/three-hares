@@ -1,5 +1,8 @@
 import BorderDivider from "@/components/layout/BorderDivider/BorderDivider";
 import AftercareInstructions from "./components/AftercareInstructions";
+import ThingsToAvoid from "./components/ThingsToAvoid/ThingsToAvoid";
+import ReccomendedProducts from "./components/ReccomendedProducts";
+import CTABanner from "@/components/ui/CTABanner";
 
 function Aftercare() {
 	return (
@@ -19,6 +22,17 @@ function Aftercare() {
 			</section>
 			<BorderDivider variant="botanical-muted" />
 			<AftercareInstructions />
+			<ThingsToAvoid />
+			<ReccomendedProducts />
+			<CTABanner
+				title="Have any other aftercare questions?"
+				buttons={[
+					{
+						buttonText: "Get in touch",
+						buttonLink: "/contact",
+					},
+				]}
+			/>
 		</main>
 	);
 }

@@ -3,7 +3,7 @@ import { Icon } from "@/components/ui/Icon";
 
 function AftercareInstructions() {
 	return (
-		<section className="bg-secondary-200 py-12 flex flex-col gap-4.5 items-center">
+		<section className="bg-secondary-200 pt-6 pb-12 flex flex-col gap-4.5 items-center px-4 md:px-8">
 			<div className="w-full max-w-[1240px] flex flex-col gap-3.5 xl:gap-5">
 				<h3 className="font-title text-[24px] leading-[32px] text-primary-950">
 					Depending on your artist's recommendation, you will likely leave the
