@@ -57,12 +57,14 @@ export default function Header({
 				/>
 			</picture>
 			<div className="max-w-[885px] w-full px-6 flex flex-col items-center gap-4 text-center md:px-14">
-				<h1 className="text-title-lg font-title lg:text-title-xl">{title}</h1>
+				<h1 className="text-title-lg font-title lg:text-title-xl xl:text-title-2xl">
+					{title}
+				</h1>
 				<div className="flex flex-col items-center gap-7">
 					{subtitle && <p className="text-body-xl font-body">{subtitle}</p>}
 					{buttonLink && buttonText && (
 						<Link href={buttonLink}>
-							<Button className="text-[20px] px-6" tabIndex={-1}>
+							<Button className="text-[24px] px-6 xl:text-[26px]" tabIndex={-1}>
 								{buttonText}
 							</Button>
 						</Link>

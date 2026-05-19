@@ -30,7 +30,7 @@
   --color-secondary-900: #6b4431;
   --color-secondary-950: #392116;
 
-  --font-title: var(--font-yeseva-one);
+  --font-title: var(--font-vineyard);
   --font-body: var(--font-josefin-sans);
 
   --ease-button: cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -51,6 +51,7 @@ body {
   font-family: var(--font-body);
 }
 
+@utility text-title-2xl { font-size: 64px; line-height: normal; }
 @utility text-title-xl { font-size: 53px; line-height: normal; }
 @utility text-title-lg { font-size: 43px; line-height: normal; }
 @utility text-title-md { font-size: 34px; line-height: normal; }

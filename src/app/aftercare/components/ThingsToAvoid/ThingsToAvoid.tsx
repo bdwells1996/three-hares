@@ -15,20 +15,22 @@ function ThingsToAvoid() {
 						{avoidAdviceItems.map((item) => (
 							<div
 								key={item.title}
-								className="flex flex-col items-center gap-2 bg-secondary-200 min-h-75 px-5 pt-8 sm:border-[3px] border-primary-600 sm:rounded-xl"
+								className="flex flex-col items-center gap-2 bg-secondary-200 min-h-75 px-5 py-8 sm:border-[3px] border-primary-600 sm:rounded-xl"
 							>
 								<Image
 									src={item.image}
 									alt={item.title}
-									width={102}
-									height={102}
+									width={120}
+									height={120}
 								/>
-								<h3 className="text-[22px] leading-[26px] font-title text-primary-950 text-center">
-									{item.title}
-								</h3>
-								<p className="text-body-lg font-body text-primary-950 text-center">
-									{item.description}
-								</p>
+								<span className="flex flex-col gap-3">
+									<h3 className="text-[28px] leading-6.5 font-title text-primary-950 text-center">
+										{item.title}
+									</h3>
+									<p className="text-body-lg font-body text-primary-950 text-center">
+										{item.description}
+									</p>
+								</span>
 							</div>
 						))}
 					</div>
