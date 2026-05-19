@@ -3,7 +3,6 @@ import BorderDivider from "@/components/layout/BorderDivider/BorderDivider";
 import FindUs from "./_components/FindUs";
 import HaresBorder from "@/components/layout/HaresBorder/HaresBorder";
 import OurWork from "./_components/OurWork";
-import InstagramGallery from "@/components/InstagramGallery/InstagramGallery";
 import CTABanner from "@/components/ui/CTABanner";
 
 const buttonConfig = [
@@ -37,7 +36,6 @@ export default function Home() {
 			<FindUs />
 			<HaresBorder />
 			<OurWork />
-			<InstagramGallery cap={12} />
 			<span className="block -mb-px">
 				<BorderDivider variant="flower" />
 			</span>

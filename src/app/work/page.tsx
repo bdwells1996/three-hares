@@ -17,12 +17,12 @@ const buttonConfig = [
 function page() {
 	return (
 		<main className="relative">
-			<section className="flex justify-center bg-primary-200 px-4 pb-12 pt-30 py-12 md:px-10 md:pt-32 lg:pb-16 xl:pb-24 xl:pt-40">
+			<section className="flex justify-center bg-secondary-200 px-4 pb-12 pt-30 py-12 md:px-10 md:pt-32 lg:pb-16 xl:pb-24 xl:pt-40">
 				<div className="flex flex-col items-center gap-4 max-w-[1240px]">
-					<h1 className="text-title-md font-title text-center text-primary-800 lg:text-title-lg xl:text-title-xl">
+					<h2 className="text-title-md font-title text-center text-primary-800 lg:text-title-lg xl:text-title-xl">
 						Take a look at some of our work
-					</h1>
-					<p className="text-body-lg text-primary-700 max-w-[800px] text-center xl:text-body-xl">
+					</h2>
+					<p className="text-body-lg text-primary-800 max-w-[800px] text-center xl:text-body-xl">
 						Lorem ipsum dolor sit amet consectetur. Posuere amet tortor
 						ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam
 						sed. Suspendisse egestas pharetra habitant sit purus blandit metus

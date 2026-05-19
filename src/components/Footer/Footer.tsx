@@ -26,7 +26,7 @@ function SimpleIcon({
 
 function Footer() {
 	return (
-		<footer className="bg-primary-500 flex items-center justify-center px-6 py-4 md:px-8 md:py-6">
+		<footer className="pattern-overlay bg-primary-500 flex items-center justify-center px-6 py-4 md:px-8 md:py-6">
 			<div className="flex flex-col w-full max-w-[1240px] gap-5 md:flex-row-reverse md:justify-between md:items-start">
 				<div className="flex flex-col items-center gap-5 md:items-start">
 					<h4 className="font-title text-[22px] md:text-body-xl">

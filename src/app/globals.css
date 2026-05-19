@@ -93,6 +93,27 @@ pointer-events: none;
 opacity: 1;
 }
 
+.pattern-overlay {
+  position: relative;
+}
+
+.pattern-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/patterns/star-pattern-tile.svg');
+  background-repeat: repeat;
+  background-size: 36px 36px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pattern-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
 .image-offset-border {
   position: relative;
   z-index: 2;

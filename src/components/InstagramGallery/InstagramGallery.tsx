@@ -58,7 +58,7 @@ export default async function InstagramGallery({
 
 	const sectionClass = clsx(
 		"px-4 flex justify-center pb-12",
-		variant === "primary" ? "bg-primary-300" : "bg-secondary-300",
+		variant === "primary" ? "bg-primary-300" : "bg-secondary-200",
 		className,
 	);
 
