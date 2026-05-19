@@ -58,15 +58,15 @@ function Nav() {
 							<Button tabIndex={-1}>Contact us</Button>
 						</Link>
 						<a
-							href="https://instagram.com"
+							href="https://www.instagram.com/threeharestattoo.btn/"
 							aria-label="Instagram"
 							className="hover:text-primary-400 transition-colors duration-300"
 						>
 							<SimpleIcon icon={siInstagram} size={21} />
 						</a>
 						<a
-							href="https://facebook.com"
-							aria-label="Facebook"
+							href="https://www.tiktok.com/@threeharestattoo.btn"
+							aria-label="Tiktok"
 							className="hover:text-primary-400 transition-colors duration-300"
 						>
 							<SimpleIcon icon={siTiktok} size={21} />
