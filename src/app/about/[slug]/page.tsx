@@ -3,10 +3,8 @@ import Header from "@/components/layout/Header/Header";
 import InstagramGallery from "@/components/InstagramGallery/InstagramGallery";
 import CTABanner from "@/components/ui/CTABanner";
 import { teamMembers } from "../components/MeetTheTeam/teamMembers";
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { StarAdornment } from "@/components/icons/StarAdornment";
 import BorderDivider from "@/components/layout/BorderDivider/BorderDivider";
+import ArtistHero from "./ArtistHero";
 
 const ctaButtons = [
 	{ buttonText: "Get booked in with us", buttonLink: "/contact" },
@@ -30,48 +28,13 @@ export default async function ArtistPage({
 
 	return (
 		<main>
-			<section className="flex justify-center bg-secondary-200 px-4 pb-8 pt-30 py-12 md:px-8 md:pt-32">
-				<div className="flex flex-col justify-center gap-8 w-full max-w-310 lg:flex-row lg:gap-14">
-					<div className="flex flex-col w-full md:px-18 lg:px-0 lg:max-w-100 shrink-0">
-						<Image
-							src="/images/team/border-leaf.svg"
-							alt="Border leaf"
-							width={138}
-							height={102}
-							className="w-1/2 h-auto"
-						/>
-						<Image
-							src={member.image}
-							alt={member.name}
-							width={280}
-							height={212}
-							className="my-[-24%] mx-[12.5%] w-[75%] h-auto rounded-lg"
-						/>
-						<Image
-							src="/images/team/border-leaf.svg"
-							alt="Border leaf"
-							width={138}
-							height={102}
-							className="w-1/2 h-auto self-end rotate-180"
-						/>
-					</div>
-					<div className="flex flex-col gap-4.5 py-4">
-						<div className="flex flex-col items-start gap-1">
-							<h3 className="text-title-sm font-title text-primary-800 lg:text-title-md">
-								{member.name}
-							</h3>
-							<span className="flex items-center gap-2 text-body-xl font-title text-primary-700">
-								<p>{member.role}</p>
-								<Icon icon={StarAdornment} />
-								<p>{member.pronouns}</p>
-							</span>
-						</div>
-						<p className="text-body-lg text-primary-800 max-w-[600px]">
-							{member.description}
-						</p>
-					</div>
-				</div>
-			</section>
+			<ArtistHero
+				name={member.name}
+				role={member.role}
+				pronouns={member.pronouns}
+				description={member.description}
+				image={member.image}
+			/>
 			<span className="block -mb-px">
 				<BorderDivider variant="botanical" />
 			</span>

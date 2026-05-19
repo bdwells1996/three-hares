@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/Button";
 import type { SanityTeamMember } from "../MeetTheTeam";
 import Image from "next/image";
@@ -6,6 +8,9 @@ import clsx from "clsx";
 import { Icon } from "@/components/ui/Icon";
 import { StarAdornment } from "@/components/icons/StarAdornment";
 import { urlFor } from "@/sanity/lib/image";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 
 interface MeetTheTeamItemProps {
 	member: SanityTeamMember;
@@ -14,15 +19,39 @@ interface MeetTheTeamItemProps {
 
 function MeetTheTeamItem({ member, direction = "left" }: MeetTheTeamItemProps) {
 	const imageUrl = urlFor(member.image).width(560).height(424).url();
+	const imageColRef = useRef<HTMLDivElement>(null);
+	const bodyItemsRef = useRef<HTMLDivElement>(null);
+	const { ref: sentinelRef, inView } = useInViewAnimation<HTMLDivElement>({
+		threshold: 0,
+		rootMargin: "0px 0px -80px 0px",
+	});
+
+	useEffect(() => {
+		if (!imageColRef.current || !bodyItemsRef.current) return;
+		gsap.set(imageColRef.current, { opacity: 0, y: 16 });
+		gsap.set(bodyItemsRef.current.children, { opacity: 0, y: 12 });
+	}, []);
+
+	useEffect(() => {
+		if (!inView || !imageColRef.current || !bodyItemsRef.current) return;
+
+		const tl = gsap.timeline();
+		tl.to(imageColRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }).to(
+			bodyItemsRef.current.children,
+			{ opacity: 1, y: 0, duration: 0.5, stagger: 0.15, ease: "power2.out" },
+			0.2,
+		);
+	}, [inView]);
 
 	return (
 		<div
+			ref={sentinelRef}
 			className={clsx(
 				"flex flex-col items-start gap-4 w-full lg:flex-row lg:gap-10",
 				direction === "right" && "lg:flex-row-reverse",
 			)}
 		>
-			<div className="flex flex-col w-full md:px-18 lg:px-0">
+			<div ref={imageColRef} className="flex flex-col w-full md:px-18 lg:px-0">
 				<Image
 					src="/images/team/border-leaf.svg"
 					alt="Border leaf"
@@ -46,21 +75,23 @@ function MeetTheTeamItem({ member, direction = "left" }: MeetTheTeamItemProps) {
 				/>
 			</div>
 			<div className="py-4 flex flex-col gap-4.5 lg:pt-10 lg:max-w-[570px] xl:max-w-[600]">
-				<div className="flex flex-col items-start gap-1">
-					<h3 className="text-title-sm font-title text-primary-800 lg:text-title-md">
-						{member.name}
-					</h3>
-					<span className="flex items-center gap-2 text-body-xl font-title text-primary-700">
-						<p>{member.role}</p>
-						<Icon icon={StarAdornment} />
-						<p>{member.pronouns}</p>
-					</span>
-				</div>
-				<div className="flex flex-col items-start gap-4.5">
-					<p className="text-body-lg text-primary-800">{member.description}</p>
-					<Link href={member.buttonLink}>
-						<Button tabIndex={-1}>{member.buttonText}</Button>
-					</Link>
+				<div ref={bodyItemsRef} className="flex flex-col gap-4.5">
+					<div className="flex flex-col items-start gap-1">
+						<h3 className="text-title-sm font-title text-primary-800 lg:text-title-md">
+							{member.name}
+						</h3>
+						<span className="flex items-center gap-2 text-body-xl font-title text-primary-700">
+							<p>{member.role}</p>
+							<Icon icon={StarAdornment} />
+							<p>{member.pronouns}</p>
+						</span>
+					</div>
+					<div className="flex flex-col items-start gap-4.5">
+						<p className="text-body-lg text-primary-800">{member.description}</p>
+						<Link href={member.buttonLink}>
+							<Button tabIndex={-1}>{member.buttonText}</Button>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
