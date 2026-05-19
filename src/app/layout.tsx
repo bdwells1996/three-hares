@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Josefin_Sans, Yeseva_One } from "next/font/google";
+import localFont from "next/font/local";
+import { Josefin_Sans } from "next/font/google";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 
-const yesevaOne = Yeseva_One({
-	variable: "--font-yeseva-one",
-	weight: "400",
-	subsets: ["latin"],
+const vineyard = localFont({
+	src: "../../public/fonts/VineyardRegular.woff2",
+	variable: "--font-vineyard",
 });
 
 const josefinSans = Josefin_Sans({
@@ -28,7 +28,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${yesevaOne.variable} ${josefinSans.variable} h-full antialiased`}
+			className={`${vineyard.variable} ${josefinSans.variable} h-full antialiased`}
 		>
 			<body className="min-h-full flex flex-col">
 				<Nav />

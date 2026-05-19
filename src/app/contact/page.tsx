@@ -22,7 +22,7 @@ export default function ContactPage() {
 				</div>
 			</section>
 			<BorderDivider variant="botanical-muted" />
-			<section className="flex justify-center bg-secondary-200 px-4 pb-14 pt-6 md:px-8 md:px-10 md:pt-10 xl:pt-12">
+			<section className="flex justify-center bg-secondary-200 px-4 pb-10 pt-6 md:px-8 md:p-10 md:pb-12">
 				<div className="flex flex-col items-center gap-7 w-full max-w-[680px]">
 					<h1 className="font-title text-title-md text-primary-950 text-center lg:text-title-lg">
 						Get in touch

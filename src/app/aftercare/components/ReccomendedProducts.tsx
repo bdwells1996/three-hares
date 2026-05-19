@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function ReccomendedProducts() {
 	return (
-		<section className="pt-7 pb-5 flex flex-col items-center bg-secondary-200 px-4 -mt-[1px] lg:px-8 lg:pb-14 xl:pt-12 xl:pb-19">
+		<section className="pt-10 pb-5 flex flex-col items-center bg-secondary-200 px-4 -mt-[1px] lg:px-8 lg:pb-14 lg:pt-12 xl:pb-19">
 			<div className="w-full max-w-[1240px] lg:flex lg:flex-row lg:flex-wrap lg:gap-x-[36px] lg:gap-y-[28px] xl:gap-x-[64px]">
 				<h2 className="text-title-md font-title text-center text-primary-950 w-full lg:text-title-lg">
 					Products we’d reccomend
