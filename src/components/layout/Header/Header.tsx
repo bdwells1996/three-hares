@@ -79,7 +79,7 @@ export default function Header({
 			<div className="max-w-[885px] w-full px-6 flex flex-col items-center gap-4 text-center md:px-14">
 				<h1
 					style={fadeIn(visible, 0)}
-					className="text-title-lg font-title lg:text-title-xl xl:text-title-2xl"
+					className="font-title text-title-xl xl:text-title-2xl"
 				>
 					{title}
 				</h1>

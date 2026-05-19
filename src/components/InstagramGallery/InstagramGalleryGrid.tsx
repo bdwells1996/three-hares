@@ -24,7 +24,10 @@ export default function InstagramGalleryGrid({
 }) {
 	const [showMore, setShowMore] = useState(false);
 	const gridRef = useRef<HTMLDivElement>(null);
-	const { ref: sentinelRef, inView } = useInViewAnimation<HTMLDivElement>();
+	const { ref: sentinelRef, inView } = useInViewAnimation<HTMLDivElement>({
+		threshold: 0,
+		rootMargin: "0px 0px -50px 0px",
+	});
 
 	// Hide items immediately so they don't flash before the inView animation runs
 	useEffect(() => {

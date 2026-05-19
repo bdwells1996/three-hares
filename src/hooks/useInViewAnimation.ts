@@ -8,6 +8,8 @@ interface UseInViewAnimationOptions {
 	threshold?: number;
 	/** Once triggered, stop observing. Default true */
 	once?: boolean;
+	/** IntersectionObserver rootMargin — use to pre-trigger before element enters view. Default "0px" */
+	rootMargin?: string;
 }
 
 /**
@@ -21,7 +23,7 @@ interface UseInViewAnimationOptions {
 export function useInViewAnimation<T extends Element = HTMLDivElement>(
 	options: UseInViewAnimationOptions = {},
 ) {
-	const { threshold = 0.1, once = true } = options;
+	const { threshold = 0.1, once = true, rootMargin = "0px" } = options;
 	const { isReady } = useAnimation();
 	const ref = useRef<T>(null);
 	const [inView, setInView] = useState(false);
@@ -42,12 +44,12 @@ export function useInViewAnimation<T extends Element = HTMLDivElement>(
 					setInView(false);
 				}
 			},
-			{ threshold },
+			{ threshold, rootMargin },
 		);
 
 		observer.observe(el);
 		return () => observer.disconnect();
-	}, [isReady, threshold, once]);
+	}, [isReady, threshold, once, rootMargin]);
 
 	return { ref, inView };
 }
