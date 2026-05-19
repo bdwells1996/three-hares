@@ -1,13 +1,37 @@
+"use client";
+
 import Button from "@/components/ui/Button";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { type CSSProperties } from "react";
+
+function fadeIn(visible: boolean, delayMs: number): CSSProperties {
+	return {
+		opacity: visible ? 1 : 0,
+		transform: visible ? "translateY(0)" : "translateY(16px)",
+		transition: visible
+			? `opacity 0.6s ease ${delayMs}ms, transform 0.6s ease ${delayMs}ms`
+			: "none",
+	};
+}
 
 function FindUs() {
+	const { ref, inView } = useInViewAnimation<HTMLElement>();
+
 	return (
-		<section className="pt-7 pb-5 flex flex-col items-center bg-primary-300 px-4 -mt-[1px] lg:px-8 xl:pt-12 xl:pb-19">
+		<section
+			ref={ref}
+			className="pt-7 pb-5 flex flex-col items-center bg-primary-300 px-4 -mt-[1px] lg:px-8 xl:pt-12 xl:pb-19"
+		>
 			<div className="w-full max-w-[1240px] lg:flex lg:flex-row lg:flex-wrap lg:gap-x-[36px] lg:gap-y-[28px] xl:gap-x-[64px]">
-				<h2 className="text-title-md font-title text-center text-primary-950 w-full lg:text-title-lg">
+				<h2
+					style={fadeIn(inView, 0)}
+					className="text-title-md font-title text-center text-primary-950 w-full lg:text-title-lg"
+				>
 					Where to find us
 				</h2>
-				<div className="flex flex-col gap-6 md:px-24 lg:px-0 lg:flex-1 lg:gap-8">
+
+				{/* Left: map + address */}
+				<div style={fadeIn(inView, 0)} className="flex flex-col gap-6 md:px-24 lg:px-0 lg:flex-1 lg:gap-8">
 					<div className="w-full mt-8 rounded-xl image-offset-border lg:before:hidden xl:before:block lg:h-full">
 						<div className="rounded-xl overflow-hidden aspect-square lg:h-full">
 							<iframe
@@ -28,44 +52,49 @@ function FindUs() {
 						<p className="text-body-lg text-primary-950">BN2 0JL</p>
 					</span>
 				</div>
+
+				{/* Right: text content */}
 				<div className="py-[14px] my-4 flex flex-col gap-2 text-primary-950 lg:max-w-[500px] xl:max-w-[730px]">
-					<h3 className="text-[24px] font-title text-center text-left leading-[28px] lg:text-title-sm xl:text-title-md">
-						We’re located between central Brighton & Kemptown
+					<h3
+						style={fadeIn(inView, 300)}
+						className="text-[24px] font-title text-center text-left leading-[28px] lg:text-title-sm xl:text-title-md"
+					>
+						We're located between central Brighton & Kemptown
 					</h3>
 					<div className="flex flex-col gap-[18px] mt-[18px] lg:mt-[14px]">
-						<p className="text-body-lg xl:text-body-xl">
-							There are a number of ways to get to us, so we thought we’d
+						<p style={fadeIn(inView, 450)} className="text-body-lg xl:text-body-xl">
+							There are a number of ways to get to us, so we thought we'd
 							provide useful directions for the most common routes.
 						</p>
 						<div className="flex flex-col gap-[24px] lg:gap-5">
-							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
+							<div style={fadeIn(inView, 600)} className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
 								<h4 className="font-semibold text-body-xl">By bus</h4>
 								<p>
-									We’re along the major routes from central Brighton to
+									We're along the major routes from central Brighton to
 									Kemptown, the nearest bus stop is just a 5 minute walk away,
 									you can easily reach us from central Brighton by jumping on
 									the number 1 or 1x.
 								</p>
 							</div>
-							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
+							<div style={fadeIn(inView, 750)} className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
 								<h4 className="font-semibold text-body-xl">By Train</h4>
 								<p>
-									We’re along the major routes from central Brighton to
+									We're along the major routes from central Brighton to
 									Kemptown, the nearest bus stop is just a 5 minute walk away,
 									you can easily reach us from central Brighton by jumping on
 									the number 1 or 1x.
 								</p>
 							</div>
-							<div className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
+							<div style={fadeIn(inView, 900)} className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
 								<h4 className="font-semibold text-body-xl">Walking</h4>
 								<p>
-									We’re also easy to reach on foot, the nearest landmark is the
+									We're also easy to reach on foot, the nearest landmark is the
 									Pavillion, from Old Steine simply walk up Edward street
-									towards Kemptown until you reach us, we’re on the right hand
+									towards Kemptown until you reach us, we're on the right hand
 									side of the road!
 								</p>
 							</div>
-							<div className="items-center gap-6 w-full hidden lg:flex">
+							<div style={fadeIn(inView, 1050)} className="items-center gap-6 w-full hidden lg:flex">
 								<p className="text-body-xl font-body text-primary-950 font-semibold">
 									Still not sure how to get to us?
 								</p>
@@ -80,7 +109,8 @@ function FindUs() {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col items-center gap-6 md:flex-row lg:hidden">
+
+				<div style={fadeIn(inView, 1050)} className="flex flex-col items-center gap-6 md:flex-row lg:hidden">
 					<p className="text-body-xl font-body text-primary-950 font-semibold md:text-body-lg">
 						Still not sure how to get to us?
 					</p>

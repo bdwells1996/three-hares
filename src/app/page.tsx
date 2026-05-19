@@ -8,7 +8,7 @@ import CTABanner from "@/components/ui/CTABanner";
 const buttonConfig = [
 	{
 		buttonText: "See more work",
-		buttonLink: "/our-work",
+		buttonLink: "/work",
 	},
 	{
 		buttonText: "Contact us",

@@ -25,7 +25,7 @@ const MeetTheTeam = forwardRef<HTMLElement, MeetTheTeamProps>(
 		return (
 			<section
 				ref={ref}
-				className="min-h-svh flex flex-col items-center bg-secondary-300 relative"
+				className="min-h-svh flex flex-col items-center bg-secondary-200 relative"
 			>
 				<BorderDivider variant="botanical" />
 				<div className="flex flex-col w-full max-w-310 pt-5.5 pb-12 px-4 gap-6.5 md:px-8 lg:gap-8 z-2">

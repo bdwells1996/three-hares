@@ -1,15 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 
 const TILE_W = 240;
 
 interface BotanicalBorderProps {
 	src: string;
 	className?: string;
+	imgStyle?: CSSProperties;
 }
 
-export default function BotanicalBorder({ src, className }: BotanicalBorderProps) {
+export default function BotanicalBorder({ src, className, imgStyle }: BotanicalBorderProps) {
 	const [count, setCount] = useState(8);
 
 	useEffect(() => {
@@ -26,7 +27,7 @@ export default function BotanicalBorder({ src, className }: BotanicalBorderProps
 				<img
 					key={i}
 					src={src}
-					style={{ width: `${100 / count}%` }}
+					style={{ width: `${100 / count}%`, ...imgStyle }}
 					alt=""
 				/>
 			))}

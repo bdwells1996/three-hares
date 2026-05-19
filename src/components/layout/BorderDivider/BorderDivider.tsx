@@ -1,3 +1,8 @@
+"use client";
+
+import { type CSSProperties } from "react";
+import clsx from "clsx";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 import BotanicalBorder from "./BotanicalBorder";
 
 type BorderVariant = "flower" | "botanical" | "botanical-muted" | "botanical-muted-green";
@@ -6,6 +11,13 @@ type BorderDividerProps = {
 	variant: BorderVariant;
 	flipped?: boolean;
 };
+
+function fadeIn(visible: boolean): CSSProperties {
+	return {
+		opacity: visible ? 1 : 0,
+		transition: visible ? "opacity 0.6s ease" : "none",
+	};
+}
 
 const variantSources: Partial<
 	Record<
@@ -55,21 +67,31 @@ const variantDefault: Record<BorderVariant, string> = {
 };
 
 export default function BorderDivider({ variant, flipped }: BorderDividerProps) {
+	const { ref, inView } = useInViewAnimation<HTMLDivElement>();
 	const flipClass = flipped ? "rotate-180" : "";
 
 	if (variant === "botanical" || variant === "botanical-muted" || variant === "botanical-muted-green") {
-		return <BotanicalBorder src={variantDefault[variant]} className={flipClass} />;
+		return (
+			<div ref={ref} className={clsx({
+				"bg-secondary-200": variant === "botanical" || variant === "botanical-muted",
+				"bg-primary-500": variant === "botanical-muted-green",
+			})}>
+				<BotanicalBorder src={variantDefault[variant]} className={flipClass} imgStyle={fadeIn(inView)} />
+			</div>
+		);
 	}
 
 	const sources = variantSources[variant];
 	const fallback = variantDefault[variant];
 
 	return (
-		<picture className={`block w-full ${flipClass}`}>
-			{sources?.map(({ breakpoint, src }) => (
-				<source key={breakpoint} media={breakpoint} srcSet={src} />
-			))}
-			<img src={fallback} alt="" className="w-full h-auto" />
-		</picture>
+		<div ref={ref} className="bg-primary-300">
+			<picture className={`block w-full ${flipClass}`}>
+				{sources?.map(({ breakpoint, src }) => (
+					<source key={breakpoint} media={breakpoint} srcSet={src} />
+				))}
+				<img src={fallback} alt="" style={fadeIn(inView)} className="w-full h-auto" />
+			</picture>
+		</div>
 	);
 }

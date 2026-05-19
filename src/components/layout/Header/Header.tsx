@@ -4,8 +4,9 @@ import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { getImageProps } from "next/image";
 import Link from "next/link";
-import type { RefObject } from "react";
+import { type CSSProperties, type RefObject, useEffect, useState } from "react";
 import { FolkArrow } from "@/components/icons/FolkArrow";
+import { useAnimation } from "@/context/AnimationContext";
 
 type ResponsiveImage = {
 	src: string;
@@ -28,6 +29,16 @@ type HeaderProps = {
 	scrollTargetRef?: RefObject<HTMLElement | null>;
 };
 
+function fadeIn(isReady: boolean, delayMs: number): CSSProperties {
+	return {
+		opacity: isReady ? 1 : 0,
+		transform: isReady ? "translateY(0)" : "translateY(16px)",
+		transition: isReady
+			? `opacity 0.6s ease ${delayMs}ms, transform 0.6s ease ${delayMs}ms`
+			: "none",
+	};
+}
+
 export default function Header({
 	images,
 	title,
@@ -37,6 +48,15 @@ export default function Header({
 	showScrollButton = true,
 	scrollTargetRef,
 }: HeaderProps) {
+	const { isReady } = useAnimation();
+	const [visible, setVisible] = useState(false);
+
+	useEffect(() => {
+		if (!isReady) return;
+		const id = requestAnimationFrame(() => setVisible(true));
+		return () => cancelAnimationFrame(id);
+	}, [isReady]);
+
 	const common = { alt: "Header", sizes: "100vw", priority: true };
 
 	const { props: xlProps } = getImageProps({ ...common, ...images.xl });
@@ -57,24 +77,37 @@ export default function Header({
 				/>
 			</picture>
 			<div className="max-w-[885px] w-full px-6 flex flex-col items-center gap-4 text-center md:px-14">
-				<h1 className="text-title-lg font-title lg:text-title-xl xl:text-title-2xl">
+				<h1
+					style={fadeIn(visible, 0)}
+					className="text-title-lg font-title lg:text-title-xl xl:text-title-2xl"
+				>
 					{title}
 				</h1>
 				<div className="flex flex-col items-center gap-7">
-					{subtitle && <p className="text-body-xl font-body">{subtitle}</p>}
+					{subtitle && (
+						<p style={fadeIn(visible, 150)} className="text-body-xl font-body">
+							{subtitle}
+						</p>
+					)}
 					{buttonLink && buttonText && (
-						<Link href={buttonLink}>
-							<Button className="text-[24px] px-6 xl:text-[26px]" tabIndex={-1}>
-								{buttonText}
-							</Button>
-						</Link>
+						<div style={fadeIn(visible, 300)}>
+							<Link href={buttonLink}>
+								<Button
+									className="text-[24px] px-6 xl:text-[26px]"
+									tabIndex={-1}
+								>
+									{buttonText}
+								</Button>
+							</Link>
+						</div>
 					)}
 				</div>
 			</div>
 			{showScrollButton && (
 				<button
 					type="button"
-					className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer"
+					style={fadeIn(visible, 600)}
+					className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
 					onClick={() =>
 						scrollTargetRef?.current?.scrollIntoView({
 							behavior: "smooth",
@@ -82,8 +115,20 @@ export default function Header({
 						})
 					}
 				>
-					<span className="text-[20px] font-title">Find out more</span>
-					<Icon icon={FolkArrow} />
+					<span className="text-[24px] font-title">Find out more</span>
+					<span
+						style={
+							visible
+								? {
+										animation:
+											"scroll-bounce 2s cubic-bezier(0.68,-0.55,0.27,1.55) infinite",
+										animationDelay: "1.2s",
+									}
+								: undefined
+						}
+					>
+						<Icon icon={FolkArrow} />
+					</span>
 				</button>
 			)}
 		</header>

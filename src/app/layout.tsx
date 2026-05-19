@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { Josefin_Sans } from "next/font/google";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
+import { AnimationProvider } from "@/context/AnimationContext";
 import "./globals.css";
 
 const vineyard = localFont({
@@ -31,9 +33,12 @@ export default function RootLayout({
 			className={`${vineyard.variable} ${josefinSans.variable} h-full antialiased`}
 		>
 			<body className="min-h-full flex flex-col">
-				<Nav />
-				{children}
-				<Footer />
+				<AnimationProvider>
+					<LoadingScreen />
+					<Nav />
+					{children}
+					<Footer />
+				</AnimationProvider>
 			</body>
 		</html>
 	);

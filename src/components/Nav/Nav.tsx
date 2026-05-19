@@ -9,6 +9,7 @@ import { StarAdornment } from "../icons/StarAdornment";
 import { MobileMenu } from "./components/MobileMenu";
 import { ScrollLogo } from "./components/ScrollLogo";
 import { useEffect, useState } from "react";
+import { useAnimation } from "@/context/AnimationContext";
 
 function SimpleIcon({
 	icon,
@@ -33,6 +34,7 @@ function SimpleIcon({
 
 function Nav() {
 	const [scrolled, setScrolled] = useState(false);
+	const { isReady } = useAnimation();
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 0);
@@ -42,6 +44,10 @@ function Nav() {
 
 	return (
 		<nav
+			style={{
+				opacity: isReady ? 1 : 0,
+				transition: isReady ? "opacity 0.5s ease" : "none",
+			}}
 			className={`fixed top-0 w-full flex items-center justify-center py-[26px] pl-[18px] pr-[22px] z-100 nav-bg${scrolled ? " nav-bg--scrolled" : ""}`}
 		>
 			<div className="max-w-[1440px] w-full h-full flex justify-between items-center relative">
@@ -77,7 +83,7 @@ function Nav() {
 					<ul className="hidden md:flex items-center gap-4">
 						{navLinks.map((link) => (
 							<li key={`nav-link-${link.href}`}>
-								<a
+								<Link
 									href={link.href}
 									className="text-body-lg xl:text-body-xl flex items-center gap-2 group hover:text-primary-400 transition-colors duration-300"
 								>
@@ -87,7 +93,7 @@ function Nav() {
 										className="hidden lg:block group-hover:rotate-90 transition-transform duration-300"
 									/>
 									{link.label}
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>
