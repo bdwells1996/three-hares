@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { navLinks } from "../navlinks";
 import { Icon } from "../../ui/Icon";
 import { StarAdornment } from "../../icons/StarAdornment";
+import Link from "next/link";
 
 function SimpleIcon({
 	icon,
@@ -100,13 +101,13 @@ export function MobileMenu() {
 								className="flex items-center gap-3"
 							>
 								<Icon icon={StarAdornment} size={14} />
-								<a
+								<Link
 									href={link.href}
 									onClick={close}
 									className="text-title-sm font-title"
 								>
 									{link.label}
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>

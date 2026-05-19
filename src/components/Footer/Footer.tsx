@@ -28,10 +28,8 @@ function Footer() {
 	return (
 		<footer className="pattern-overlay bg-primary-500 flex items-center justify-center px-6 py-4 md:px-8 md:py-6">
 			<div className="flex flex-col w-full max-w-[1240px] gap-5 md:flex-row-reverse md:justify-between md:items-start">
-				<div className="flex flex-col items-center gap-5 md:items-start">
-					<h4 className="font-title text-[22px] md:text-body-xl">
-						Useful Links
-					</h4>
+				<div className="flex flex-col items-center gap-5.5 md:items-start">
+					<h4 className="font-title text-[22px]">Useful Links</h4>
 					<ul className="flex flex-wrap items-center justify-center gap-4">
 						{navLinks.map((link) => (
 							<li
@@ -47,7 +45,7 @@ function Footer() {
 				</div>
 				<div className="flex flex-col items-center gap-6 md:gap-8 md:items-start">
 					<div className="flex items-center gap-3.5">
-						<Link href="/contact" className="font-title text-body-xl">
+						<Link href="/contact" className="font-title text-[22px]">
 							Contact us
 						</Link>
 						<a href="https://instagram.com" aria-label="Instagram">

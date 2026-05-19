@@ -28,38 +28,38 @@ function MeetTheTeamItem({ member, direction = "left" }: MeetTheTeamItemProps) {
 					alt="Border leaf"
 					width={138}
 					height={102}
-					className="w-1/3 h-auto"
+					className="w-1/2 h-auto"
 				/>
 				<Image
 					src={imageUrl}
 					alt={member.name}
 					width={280}
 					height={212}
-					className="my-[-14%] mx-[12.5%] w-[75%] h-auto rounded-lg"
+					className="my-[-24%] mx-[12.5%] w-[75%] h-auto rounded-lg"
 				/>
 				<Image
 					src="/images/team/border-leaf.svg"
 					alt="Border leaf"
 					width={138}
 					height={102}
-					className="w-1/3 h-auto self-end rotate-180"
+					className="w-1/2 h-auto self-end rotate-180"
 				/>
 			</div>
-			<div className="py-4 flex flex-col gap-4.5 lg:max-w-[570px] xl:max-w-[600]">
-				<div className="flex flex-col gap-1">
-					<h3 className="text-title-sm font-title text-primary-800">
+			<div className="py-4 flex flex-col gap-4.5 lg:pt-10 lg:max-w-[570px] xl:max-w-[600]">
+				<div className="flex flex-col items-start gap-1">
+					<h3 className="text-title-sm font-title text-primary-800 lg:text-title-md">
 						{member.name}
 					</h3>
-					<span className="flex items-center gap-2 text-body-lg font-title text-primary-700">
+					<span className="flex items-center gap-2 text-body-xl font-title text-primary-700">
 						<p>{member.role}</p>
 						<Icon icon={StarAdornment} />
 						<p>{member.pronouns}</p>
 					</span>
 				</div>
-				<div className="flex flex-col gap-4.5">
+				<div className="flex flex-col items-start gap-4.5">
 					<p className="text-body-lg text-primary-800">{member.description}</p>
 					<Link href={member.buttonLink}>
-						<Button>{member.buttonText}</Button>
+						<Button tabIndex={-1}>{member.buttonText}</Button>
 					</Link>
 				</div>
 			</div>

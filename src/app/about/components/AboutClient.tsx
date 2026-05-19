@@ -9,7 +9,7 @@ import type { SanityTeamMember } from "./MeetTheTeam/MeetTheTeam";
 const buttonConfig = [
 	{
 		buttonText: "See more work",
-		buttonLink: "/our-work",
+		buttonLink: "/work",
 	},
 	{
 		buttonText: "Contact us",
