@@ -31,7 +31,10 @@ function FindUs() {
 				</h2>
 
 				{/* Left: map + address */}
-				<div style={fadeIn(inView, 0)} className="flex flex-col gap-6 md:px-24 lg:px-0 lg:flex-1 lg:gap-8">
+				<div
+					style={fadeIn(inView, 0)}
+					className="flex flex-col gap-6 md:px-24 lg:px-0 lg:flex-1 lg:gap-8"
+				>
 					<div className="w-full mt-8 rounded-xl image-offset-border lg:before:hidden xl:before:block lg:h-full">
 						<div className="rounded-xl overflow-hidden aspect-square lg:h-full">
 							<iframe
@@ -54,20 +57,26 @@ function FindUs() {
 				</div>
 
 				{/* Right: text content */}
-				<div className="py-[14px] my-4 flex flex-col gap-2 text-primary-950 lg:max-w-[500px] xl:max-w-[730px]">
+				<div className="py-[14px] my-4 flex flex-col text-primary-950 lg:max-w-[500px] xl:max-w-[730px]">
 					<h3
 						style={fadeIn(inView, 300)}
 						className="text-[24px] font-title text-center text-left leading-[28px] lg:text-title-sm xl:text-title-md"
 					>
 						We're located between central Brighton & Kemptown
 					</h3>
-					<div className="flex flex-col gap-[18px] mt-[18px] lg:mt-[14px]">
-						<p style={fadeIn(inView, 450)} className="text-body-lg xl:text-body-xl">
+					<div className="flex flex-col gap-[18px] mt-[10px]">
+						<p
+							style={fadeIn(inView, 450)}
+							className="text-body-lg xl:text-body-xl"
+						>
 							There are a number of ways to get to us, so we thought we'd
 							provide useful directions for the most common routes.
 						</p>
 						<div className="flex flex-col gap-[24px] lg:gap-5">
-							<div style={fadeIn(inView, 600)} className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
+							<div
+								style={fadeIn(inView, 600)}
+								className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl"
+							>
 								<h4 className="font-semibold text-body-xl">By bus</h4>
 								<p>
 									We're along the major routes from central Brighton to
@@ -76,7 +85,10 @@ function FindUs() {
 									the number 1 or 1x.
 								</p>
 							</div>
-							<div style={fadeIn(inView, 750)} className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
+							<div
+								style={fadeIn(inView, 750)}
+								className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl"
+							>
 								<h4 className="font-semibold text-body-xl">By Train</h4>
 								<p>
 									We're along the major routes from central Brighton to
@@ -85,7 +97,10 @@ function FindUs() {
 									the number 1 or 1x.
 								</p>
 							</div>
-							<div style={fadeIn(inView, 900)} className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl">
+							<div
+								style={fadeIn(inView, 900)}
+								className="text-body-lg font-body text-primary-950 flex flex-col gap-[10px] xl:text-body-xl"
+							>
 								<h4 className="font-semibold text-body-xl">Walking</h4>
 								<p>
 									We're also easy to reach on foot, the nearest landmark is the
@@ -94,7 +109,10 @@ function FindUs() {
 									side of the road!
 								</p>
 							</div>
-							<div style={fadeIn(inView, 1050)} className="items-center gap-6 w-full hidden lg:flex">
+							<div
+								style={fadeIn(inView, 1050)}
+								className="items-center gap-6 w-full hidden lg:flex"
+							>
 								<p className="text-body-xl font-body text-primary-950 font-semibold">
 									Still not sure how to get to us?
 								</p>
@@ -110,7 +128,10 @@ function FindUs() {
 					</div>
 				</div>
 
-				<div style={fadeIn(inView, 1050)} className="flex flex-col items-center gap-6 md:flex-row lg:hidden">
+				<div
+					style={fadeIn(inView, 1050)}
+					className="flex flex-col items-center gap-6 md:flex-row lg:hidden"
+				>
 					<p className="text-body-xl font-body text-primary-950 font-semibold md:text-body-lg">
 						Still not sure how to get to us?
 					</p>

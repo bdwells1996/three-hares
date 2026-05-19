@@ -5,6 +5,18 @@ import { PortableText, type PortableTextBlock } from "@portabletext/react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
+import { type CSSProperties } from "react";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+
+function fadeIn(visible: boolean, delayMs: number): CSSProperties {
+	return {
+		opacity: visible ? 1 : 0,
+		transform: visible ? "translateY(0)" : "translateY(16px)",
+		transition: visible
+			? `opacity 0.6s ease ${delayMs}ms, transform 0.6s ease ${delayMs}ms`
+			: "none",
+	};
+}
 
 const portableTextComponents = {
 	marks: {
@@ -46,8 +58,11 @@ interface AccordionProps {
 }
 
 function Accordion({ items }: AccordionProps) {
+	const { ref, inView } = useInViewAnimation<HTMLDivElement>();
+
 	return (
 		<RadixAccordion.Root
+			ref={ref}
 			type="multiple"
 			className="w-full border border-primary-200 md:rounded-xl overflow-hidden"
 		>
@@ -55,6 +70,7 @@ function Accordion({ items }: AccordionProps) {
 				<RadixAccordion.Item
 					key={item._id}
 					value={`item-${index}`}
+					style={fadeIn(inView, index * 75)}
 					className={clsx(
 						"bg-secondary-50 border-t border-primary-200 first:border-t-0",
 					)}
