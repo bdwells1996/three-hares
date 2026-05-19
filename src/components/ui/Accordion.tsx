@@ -76,8 +76,8 @@ function Accordion({ items }: AccordionProps) {
 					)}
 				>
 					<RadixAccordion.Header>
-						<RadixAccordion.Trigger className="group flex w-full items-center gap-4 px-4 py-3.5 text-left cursor-pointer">
-							<span className="flex-1 text-body-xl font-title text-primary-950 min-w-0 xl:text-[20px]">
+						<RadixAccordion.Trigger className="group flex w-full items-center gap-4 px-4 py-4 text-left cursor-pointer">
+							<span className="flex-1 text-[20px] leading-[20px] font-title text-primary-950 min-w-0 xl:text-[22px] leading-[22px]">
 								{item.question}
 							</span>
 							<ChevronDown
