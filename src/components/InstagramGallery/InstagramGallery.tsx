@@ -46,10 +46,9 @@ export default async function InstagramGallery({
 	className?: string;
 	cap?: number;
 }) {
-	const tokens = [
-		process.env.INSTAGRAM_ACCESS_TOKEN_BEN,
-		process.env.INSTAGRAM_ACCESS_TOKEN_SASHA,
-	].filter(Boolean) as string[];
+	const tokens = [process.env.INSTAGRAM_ACCESS_TOKEN_NIKKI].filter(
+		Boolean,
+	) as string[];
 
 	if (!tokens.length) return null;
 
