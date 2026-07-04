@@ -129,7 +129,15 @@ function FindUs() {
 									city centre, such as The Lanes Car Park, London Road Car Park
 									and Churchill Square Car Park, these are priced at around
 									£25-£40 for 8 hours. We recommend checking parking options
-									before your appointment on www.parkopedia.com
+									before your appointment on{" "}
+									<a
+										href="https://www.parkopedia.com"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="underline"
+									>
+										www.parkopedia.com
+									</a>
 								</p>
 							</div>
 							<div
