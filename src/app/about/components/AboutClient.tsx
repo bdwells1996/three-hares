@@ -34,7 +34,7 @@ export default function AboutClient({ members }: AboutClientProps) {
 					sm: { src: "/images/home/header-sm.jpg", width: 448, height: 494 },
 				}}
 				title="About us"
-				subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
+				subtitle="We are a private, wheelchair accessible studio. You will be greeted at the gate, or buzzed in through the intercom. We are tucked away down a quiet path, where you can enjoy some peace away from the city. Our studio is a safe space for all. We care deeply about protecting our space, and having a team that allies themselves with our queer, trans and neurodiverse community. We have a friendly team who are all passionate about their craft, and a wonderful studio manager and co-founder Harley, and their sausage dog, Ivy. Find out more about our team in the ‘meet the team’ section."
 				scrollTargetRef={meetTheTeamRef}
 			/>
 			<MeetTheTeam ref={meetTheTeamRef} members={members} />
