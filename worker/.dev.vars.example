@@ -1,0 +1,6 @@
+RESEND_API_KEY=your-resend-api-key-here
+SANITY_API_WRITE_TOKEN=your-sanity-write-token-here
+INSTAGRAM_ACCESS_TOKEN_SHOP=
+INSTAGRAM_ACCESS_TOKEN_NIKKI=
+INSTAGRAM_ACCESS_TOKEN_PETE=
+CRON_SECRET=your-manual-trigger-secret-here
