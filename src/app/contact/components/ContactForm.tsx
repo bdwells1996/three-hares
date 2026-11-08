@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 import SelectInput from "@/components/ui/SelectInput";
 import TextInput from "@/components/ui/TextInput";
 
-const ARTISTS = ["Rosie", "Jamie", "Alex", "Other"];
+const ARTISTS = ["Pete", "Nikki"];
 const ENQUIRY_TYPES = ["New tattoo", "Touch-up", "Cover-up", "Flash", "Other"];
 
 const contactSchema = z.object({
