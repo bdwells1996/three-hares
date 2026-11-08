@@ -29,8 +29,8 @@ function AftercareInstructions() {
 			>
 				<h3 className="font-title text-[26px] leading-[34px] text-primary-950">
 					Depending on your artist's recommendation, you will likely leave the
-					studio with either a traditional bandage or a medical-grade adhesive
-					film (like "Second Skin").
+					studio with either clingfilm or a medical-grade adhesive film (like
+					"Second Skin").
 				</h3>
 				<ul className="text-body-lg flex flex-col gap-2.5 xl:text-body-xl">
 					<li className="flex flex-col gap-1.5 text-primary-950 sm:flex-row sm:items-start sm:gap-1.5">

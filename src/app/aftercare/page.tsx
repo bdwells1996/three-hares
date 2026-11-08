@@ -9,10 +9,7 @@ function Aftercare() {
 	return (
 		<main>
 			<section className="flex justify-center bg-secondary-200 px-4 pb-10 pt-30 py-12 md:px-10 md:pt-32 lg:pb-1 xl:pb-18 xl:pt-40">
-				<PageHeader
-					title="Aftercare Instructions"
-					subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
-				/>
+				<PageHeader title="Aftercare Instructions" />
 			</section>
 			<BorderDivider variant="botanical-muted" />
 			<AftercareInstructions />

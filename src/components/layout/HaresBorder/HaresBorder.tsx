@@ -82,7 +82,7 @@ export default function HaresBorder({
 					<Image
 						// biome-ignore lint/suspicious/noArrayIndexKey: static decorative list
 						key={i}
-						src="/images/borders/hares-border/hares-border-hare.svg"
+						src="/images/borders/hares-border/hares-border-hare.webp"
 						alt=""
 						width={width}
 						height={height}

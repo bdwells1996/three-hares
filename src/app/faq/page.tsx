@@ -20,17 +20,15 @@ async function Page() {
 	return (
 		<main>
 			<section className="flex justify-center bg-secondary-200 px-4 pb-10 pt-30 py-12 md:px-10 md:pt-32 lg:pb-1 xl:pb-18 xl:pt-40">
-				<PageHeader
-					title="Frequently asked questions"
-					subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
-				/>
+				<PageHeader title="Frequently asked questions" />
 			</section>
 			<BorderDivider variant="botanical-muted" />
-			<section className="flex justify-center py-12 bg-secondary-200 md:px-6 md:py-10">
+			<section className="flex justify-center py-8 bg-secondary-200 md:px-6 md:py-10">
 				<div className="w-full max-w-[800px]">
 					<Accordion items={items} />
 				</div>
 			</section>
+			
 			<span className="block -my-px">
 				<BorderDivider variant="botanical-muted" flipped={true} />
 			</span>

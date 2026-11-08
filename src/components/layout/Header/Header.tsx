@@ -27,6 +27,7 @@ type HeaderProps = {
 	buttonText?: string;
 	showScrollButton?: boolean;
 	scrollTargetRef?: RefObject<HTMLElement | null>;
+	subtitleSize?: "sm" | "md";
 };
 
 function fadeIn(isReady: boolean, delayMs: number): CSSProperties {
@@ -47,6 +48,7 @@ export default function Header({
 	buttonText,
 	showScrollButton = true,
 	scrollTargetRef,
+	subtitleSize = "sm",
 }: HeaderProps) {
 	const { isReady } = useAnimation();
 	const [visible, setVisible] = useState(false);
@@ -58,6 +60,17 @@ export default function Header({
 	}, [isReady]);
 
 	const common = { alt: "Header", sizes: "100vw", priority: true };
+
+	let subtitleClassName = "text-body-xl";
+
+	switch (subtitleSize) {
+		case "sm":
+			subtitleClassName = "text-body-xl";
+			break;
+		case "md":
+			subtitleClassName = "text-title-sm";
+			break;
+	}
 
 	const { props: xlProps } = getImageProps({ ...common, ...images.xl });
 	const { props: lgProps } = getImageProps({ ...common, ...images.lg });
@@ -85,7 +98,10 @@ export default function Header({
 				</h1>
 				<div className="flex flex-col items-center gap-7">
 					{subtitle && (
-						<p style={fadeIn(visible, 150)} className="text-body-xl font-body">
+						<p
+							style={fadeIn(visible, 150)}
+							className={`${subtitleClassName} font-body`}
+						>
 							{subtitle}
 						</p>
 					)}

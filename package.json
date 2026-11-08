@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "eslint",
 		"seed:faq": "tsx --env-file=.env.local scripts/seedFaq.ts",
-		"seed:team": "tsx --env-file=.env.local scripts/seedTeamMembers.ts"
+		"seed:team": "tsx --env-file=.env.local scripts/seedTeamMembers.ts",
+		"seed:instagram": "tsx --env-file=.env.local scripts/seedInstagramSettings.ts"
 	},
 	"dependencies": {
 		"@portabletext/react": "^6.2.0",
@@ -19,17 +20,16 @@
 		"lucide-react": "^1.14.0",
 		"next": "16.2.6",
 		"next-sanity": "^12.4.5",
-		"nodemailer": "^8.0.7",
 		"react": "19.2.4",
 		"react-dom": "19.2.4",
 		"sanity": "^5.25.1",
 		"simple-icons": "^16.19.0",
+		"styled-components": "^6.6.0",
 		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
-		"@types/nodemailer": "^8.0.0",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"eslint": "^9",

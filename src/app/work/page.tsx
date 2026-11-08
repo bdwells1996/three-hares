@@ -21,7 +21,6 @@ function page() {
 			<section className="flex justify-center bg-secondary-200 px-4 pb-12 pt-30 py-12 md:px-10 md:pt-32 lg:pb-16 xl:pb-24 xl:pt-40">
 				<PageHeader
 					title="Take a look at some of our work"
-					subtitle="Lorem ipsum dolor sit amet consectetur. Posuere amet tortor ultricies vestibulum in vitae at. Tellus egestas morbi tempor diam sed. Suspendisse egestas pharetra habitant sit purus blandit metus faucibus sagittis. Consectetur auctor elit sit phasellus a."
 					titleClassName="text-primary-800"
 					subtitleClassName="text-primary-800"
 				/>

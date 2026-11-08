@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import InstagramGalleryGrid from "./InstagramGalleryGrid";
+import { client } from "@/sanity/lib/client";
+import { instagramSettingsQuery } from "@/sanity/lib/queries";
 
 type InstagramMedia = {
 	id: string;
@@ -12,6 +14,17 @@ type InstagramMedia = {
 
 type InstagramFeedResponse = {
 	data: InstagramMedia[];
+};
+
+type InstagramAccount = {
+	name: string;
+	accessToken: string;
+	lastRefreshed?: string;
+};
+
+type InstagramSettings = {
+	_id: string;
+	accounts?: InstagramAccount[];
 };
 
 async function fetchInstagramFeed(token: string): Promise<InstagramMedia[]> {
@@ -41,14 +54,44 @@ export default async function InstagramGallery({
 	variant = "primary",
 	className,
 	cap,
+	account,
 }: {
 	variant?: "primary" | "secondary";
 	className?: string;
 	cap?: number;
+	account?: string;
 }) {
-	const tokens = [process.env.INSTAGRAM_ACCESS_TOKEN_NIKKI].filter(
-		Boolean,
-	) as string[];
+	let tokens: string[] = [];
+
+	try {
+		const settings = await client.fetch<InstagramSettings | null>(
+			instagramSettingsQuery,
+			{},
+			{ next: { revalidate: 3600 } },
+		);
+
+		if (settings?.accounts?.length) {
+			const matchingAccounts = account
+				? settings.accounts.filter(
+						(a) => a.name.toLowerCase() === account.toLowerCase(),
+					)
+				: settings.accounts;
+
+			tokens = matchingAccounts
+				.map((a) => a.accessToken)
+				.filter(Boolean);
+		}
+	} catch (error) {
+		console.error("Failed to fetch Instagram settings from Sanity:", error);
+	}
+
+	// Fallback to environment variables if no tokens found in Sanity
+	if (!tokens.length) {
+		tokens = [
+			process.env.INSTAGRAM_ACCESS_TOKEN_SHOP,
+			process.env.INSTAGRAM_ACCESS_TOKEN_NIKKI,
+		].filter(Boolean) as string[];
+	}
 
 	if (!tokens.length) return null;
 

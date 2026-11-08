@@ -21,13 +21,30 @@ export default function Home() {
 		<main>
 			<Header
 				images={{
-					xl: { src: "/images/home/header-xl.jpg", width: 1920, height: 1080 },
-					lg: { src: "/images/home/header-lg.jpg", width: 1240, height: 698 },
-					md: { src: "/images/home/header-md.jpg", width: 768, height: 432 },
-					sm: { src: "/images/home/header-sm.jpg", width: 448, height: 494 },
+					xl: {
+						src: "/images/home/header/header-xl.jpg",
+						width: 1920,
+						height: 1080,
+					},
+					lg: {
+						src: "/images/home/header/header-lg.jpg",
+						width: 1240,
+						height: 698,
+					},
+					md: {
+						src: "/images/home/header/header-md.jpg",
+						width: 768,
+						height: 432,
+					},
+					sm: {
+						src: "/images/home/header/header-sm.jpg",
+						width: 448,
+						height: 494,
+					},
 				}}
 				title="Three Hares Tattoo"
 				subtitle="Private studio - Brighton, UK"
+				subtitleSize="md"
 				buttonLink="/contact"
 				buttonText="Book your visit"
 				showScrollButton={false}

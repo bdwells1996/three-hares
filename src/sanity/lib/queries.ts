@@ -21,3 +21,15 @@ export const teamMembersQuery = groq`
     direction
   }
 `
+
+export const instagramSettingsQuery = groq`
+  *[_type == "instagramSettings" && _id == "instagramSettings"][0] {
+    _id,
+    accounts[] {
+      name,
+      accessToken,
+      lastRefreshed
+    }
+  }
+`
+
