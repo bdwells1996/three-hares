@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
+  // Emit /about/index.html instead of about.html, so Apache/LiteSpeed doesn't 403 on the bare /about directory.
+  trailingSlash: true,
   images: {
     remotePatterns: [
       {
